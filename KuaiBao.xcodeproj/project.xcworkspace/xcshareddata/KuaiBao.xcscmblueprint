@@ -1,0 +1,35 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "3e4bea58-f9d4-b246-bc53-c88a5f9dab85++2990",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "3e4bea58-f9d4-b246-bc53-c88a5f9dab85++2990" : {
+
+    },
+    "3e4bea58-f9d4-b246-bc53-c88a5f9dab85++4251" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "3e4bea58-f9d4-b246-bc53-c88a5f9dab85++2990" : 0,
+    "3e4bea58-f9d4-b246-bc53-c88a5f9dab85++4251" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "23F9A6EC-A253-4945-B30F-BE1F24608D2D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "3e4bea58-f9d4-b246-bc53-c88a5f9dab85++2990" : "KuaiBao\/",
+    "3e4bea58-f9d4-b246-bc53-c88a5f9dab85++4251" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "KuaiBao",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "KuaiBao.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/211.149.187.251\/svn\/juyuan\/kaibao\/ios",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3e4bea58-f9d4-b246-bc53-c88a5f9dab85++2990"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/211.149.187.251\/svn\/juyuan",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3e4bea58-f9d4-b246-bc53-c88a5f9dab85++4251"
+    }
+  ]
+}

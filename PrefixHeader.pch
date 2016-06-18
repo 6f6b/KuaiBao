@@ -1,0 +1,35 @@
+//
+//  PrefixHeader.pch
+//  KuaiBao
+//
+//  Created by dev.liufeng on 16/6/14.
+//  Copyright © 2016年 刘丰. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+
+#define BASE_URL @"http://211.149.187.251:8089/internet-admin"
+
+#import <AFNetworking/AFNetworking.h>
+#import <AFNetworking/AFURLRequestSerialization.h>
+#import "KBHelper.h"
+#import "ZJModelTool.h"
+#import <UIKit+AFNetworking.h>
+
+#define URL_GET_VERIFYCODE          [BASE_URL stringByAppendingString:@"/customer/getValidateCode?"]
+#define URL_VERIFY_VERIFYCODE       [BASE_URL stringByAppendingString:@"/customer/validatePwd"]
+#define URL_REGITER                 [BASE_URL stringByAppendingString:@"/customer/register?"]
+#define URL_LOGIN                   [BASE_URL stringByAppendingString:@"/customer/login"]
+#define URL_UPDATEPWD               [BASE_URL stringByAppendingString:@"/customer/updatePwd"]
+#define URL_GET_USERINFO            [BASE_URL stringByAppendingString:@"/customer/getUserById"]
+
+#define URL_ADVERT                  [BASE_URL stringByAppendingString:@"/salesActivity/getAll?"]
+#define U                           [BASE_URL stringByAppendingString:@""]
+#define U                           [BASE_URL stringByAppendingString:@""]
+#define U [BASE_URL stringByAppendingString:@""]
+
+#endif /* PrefixHeader_pch */
