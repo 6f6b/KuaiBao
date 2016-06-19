@@ -43,10 +43,11 @@
     [super viewDidLoad];
     
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, -10, 200, 20)];
+    self.searchBar.placeholder = @"搜一搜附近有哪些快保吧";
     self.searchBar = searchBar;
     self.searchBar.delegate = self;
     self.navigationItem.titleView = self.searchBar;
-    
+//
 //    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
 //    self.leftButton = leftButton;
 //    leftButton.frame = CGRectMake(0, 0, 70, 25);
@@ -56,21 +57,21 @@
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
 //    [leftButton addTarget:self action:@selector(dealGeoCodeSearch) forControlEvents:UIControlEventTouchUpInside];
     
-//    BMKMapView *mapView = [[BMKMapView alloc] init];
-//    self.mapView = mapView;
-//    self.mapView.delegate = self;
-//    self.mapView.showsUserLocation = YES;
-//    mapView.frame = self.view.bounds;
-//    mapView.userTrackingMode = BMKUserTrackingModeFollow;
-//    [self.view addSubview:mapView];
-//    
-//    BMKLocationService *locSearvice = [[BMKLocationService alloc] init];
-//    self.locService = locSearvice;
-//    locSearvice.delegate = self;
-//    [locSearvice startUserLocationService];
-//    
-//    self.geoCodeSearch = [[BMKGeoCodeSearch alloc] init];
-//    self.geoCodeSearch.delegate = self;
+    BMKMapView *mapView = [[BMKMapView alloc] init];
+    self.mapView = mapView;
+    self.mapView.delegate = self;
+    self.mapView.showsUserLocation = YES;
+    mapView.frame = self.view.bounds;
+    mapView.userTrackingMode = BMKUserTrackingModeFollow;
+    [self.view addSubview:mapView];
+    
+    BMKLocationService *locSearvice = [[BMKLocationService alloc] init];
+    self.locService = locSearvice;
+    locSearvice.delegate = self;
+    [locSearvice startUserLocationService];
+    
+    self.geoCodeSearch = [[BMKGeoCodeSearch alloc] init];
+    self.geoCodeSearch.delegate = self;
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -196,28 +197,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    BMKMapView *mapView = [[BMKMapView alloc] init];
-    self.mapView = mapView;
-    self.mapView.delegate = self;
-    self.mapView.showsUserLocation = YES;
-    mapView.frame = self.view.bounds;
-    mapView.userTrackingMode = BMKUserTrackingModeFollow;
-    [self.view addSubview:mapView];
-    
-    BMKLocationService *locSearvice = [[BMKLocationService alloc] init];
-    self.locService = locSearvice;
-    locSearvice.delegate = self;
-    [locSearvice startUserLocationService];
-    
-    self.geoCodeSearch = [[BMKGeoCodeSearch alloc] init];
-    self.geoCodeSearch.delegate = self;
-}
-
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [self.mapView removeFromSuperview];
-}
+//- (void)viewWillAppear:(BOOL)animated{
+//}
+//
+//- (void)viewWillDisappear:(BOOL)animated{
+//    [super viewWillDisappear:animated];
+//    [self.mapView removeFromSuperview];
+//}
 
 @end

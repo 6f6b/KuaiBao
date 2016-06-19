@@ -76,8 +76,10 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    NSLog(@"-------->%@",[KBHelper getCustomerId]);
     if(![KBHelper getCustomerId]){
+        self.userName.text = @"请登录";
+        self.carNumber.text = @"";
+        self.userScore.text = @"";
         return;
     }
     NSDictionary *parameter = @{@"customerId":[KBHelper getCustomerId]};

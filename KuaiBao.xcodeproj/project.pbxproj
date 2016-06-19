@@ -370,6 +370,7 @@
 		68A9FC001D16474E0033769C /* KBCommentsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A9FBFF1D16474E0033769C /* KBCommentsController.m */; };
 		68A9FC031D169D860033769C /* KBServiceItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A9FC021D169D860033769C /* KBServiceItemModel.m */; };
 		68A9FC061D169DA20033769C /* KBServiceWayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A9FC051D169DA20033769C /* KBServiceWayModel.m */; };
+		68A9FC091D16D7BA0033769C /* KBConfigController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A9FC081D16D7BA0033769C /* KBConfigController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -795,6 +796,8 @@
 		68A9FC021D169D860033769C /* KBServiceItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBServiceItemModel.m; sourceTree = "<group>"; };
 		68A9FC041D169DA20033769C /* KBServiceWayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBServiceWayModel.h; sourceTree = "<group>"; };
 		68A9FC051D169DA20033769C /* KBServiceWayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBServiceWayModel.m; sourceTree = "<group>"; };
+		68A9FC071D16D7BA0033769C /* KBConfigController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBConfigController.h; sourceTree = "<group>"; };
+		68A9FC081D16D7BA0033769C /* KBConfigController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBConfigController.m; sourceTree = "<group>"; };
 		8C663BC1CE4512112A10C9ED /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A03B31F9D109E17E0C3B54A1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB5313CAEF30B823790FE677 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1442,6 +1445,8 @@
 				6849B6851CF59CD900162550 /* KBAboutUsViewController.m */,
 				6849B6811CF59C5A00162550 /* KBUserGuidController.h */,
 				6849B6821CF59C5A00162550 /* KBUserGuidController.m */,
+				68A9FC071D16D7BA0033769C /* KBConfigController.h */,
+				68A9FC081D16D7BA0033769C /* KBConfigController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -2033,6 +2038,7 @@
 				1735F7331CB3C607005E577C /* LFLoopScrollView.m in Sources */,
 				17471ED91CA1789B00B6C1C7 /* KBHomePageViewController.m in Sources */,
 				17471E8B1CA175E700B6C1C7 /* main.m in Sources */,
+				68A9FC091D16D7BA0033769C /* KBConfigController.m in Sources */,
 				6849B6861CF59CD900162550 /* KBAboutUsViewController.m in Sources */,
 				68A9FBB41D15916A0033769C /* KBChoiceServiceWayListDeleget.m in Sources */,
 				1735F73B1CB3D4A8005E577C /* KBLoginViewController.m in Sources */,
