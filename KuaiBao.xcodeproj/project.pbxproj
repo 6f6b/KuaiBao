@@ -361,6 +361,15 @@
 		68A9FB581D1163ED0033769C /* KBShopDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A9FB571D1163ED0033769C /* KBShopDetailViewController.m */; };
 		68A9FB941D13A7860033769C /* KBChoiceServiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A9FB931D13A7860033769C /* KBChoiceServiceController.m */; };
 		68A9FBAC1D151D0D0033769C /* libAFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68A9FB391D0FE8BB0033769C /* libAFNetworking.a */; };
+		68A9FBB11D1591520033769C /* KBChoiceServiceItemListDeleget.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A9FBB01D1591520033769C /* KBChoiceServiceItemListDeleget.m */; };
+		68A9FBB41D15916A0033769C /* KBChoiceServiceWayListDeleget.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A9FBB31D15916A0033769C /* KBChoiceServiceWayListDeleget.m */; };
+		68A9FBB81D1632AE0033769C /* KBServiceItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A9FBB61D1632AE0033769C /* KBServiceItemCell.m */; };
+		68A9FBB91D1632AE0033769C /* KBServiceItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68A9FBB71D1632AE0033769C /* KBServiceItemCell.xib */; };
+		68A9FBBD1D1632C00033769C /* KBServiceWayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A9FBBB1D1632C00033769C /* KBServiceWayCell.m */; };
+		68A9FBBE1D1632C00033769C /* KBServiceWayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68A9FBBC1D1632C00033769C /* KBServiceWayCell.xib */; };
+		68A9FC001D16474E0033769C /* KBCommentsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A9FBFF1D16474E0033769C /* KBCommentsController.m */; };
+		68A9FC031D169D860033769C /* KBServiceItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A9FC021D169D860033769C /* KBServiceItemModel.m */; };
+		68A9FC061D169DA20033769C /* KBServiceWayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A9FC051D169DA20033769C /* KBServiceWayModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -770,6 +779,22 @@
 		68A9FB571D1163ED0033769C /* KBShopDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBShopDetailViewController.m; sourceTree = "<group>"; };
 		68A9FB921D13A7860033769C /* KBChoiceServiceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBChoiceServiceController.h; sourceTree = "<group>"; };
 		68A9FB931D13A7860033769C /* KBChoiceServiceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBChoiceServiceController.m; sourceTree = "<group>"; };
+		68A9FBAF1D1591520033769C /* KBChoiceServiceItemListDeleget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBChoiceServiceItemListDeleget.h; sourceTree = "<group>"; };
+		68A9FBB01D1591520033769C /* KBChoiceServiceItemListDeleget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBChoiceServiceItemListDeleget.m; sourceTree = "<group>"; };
+		68A9FBB21D15916A0033769C /* KBChoiceServiceWayListDeleget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBChoiceServiceWayListDeleget.h; sourceTree = "<group>"; };
+		68A9FBB31D15916A0033769C /* KBChoiceServiceWayListDeleget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBChoiceServiceWayListDeleget.m; sourceTree = "<group>"; };
+		68A9FBB51D1632AE0033769C /* KBServiceItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBServiceItemCell.h; sourceTree = "<group>"; };
+		68A9FBB61D1632AE0033769C /* KBServiceItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBServiceItemCell.m; sourceTree = "<group>"; };
+		68A9FBB71D1632AE0033769C /* KBServiceItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KBServiceItemCell.xib; sourceTree = "<group>"; };
+		68A9FBBA1D1632BF0033769C /* KBServiceWayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBServiceWayCell.h; sourceTree = "<group>"; };
+		68A9FBBB1D1632C00033769C /* KBServiceWayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBServiceWayCell.m; sourceTree = "<group>"; };
+		68A9FBBC1D1632C00033769C /* KBServiceWayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KBServiceWayCell.xib; sourceTree = "<group>"; };
+		68A9FBFE1D16474E0033769C /* KBCommentsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBCommentsController.h; sourceTree = "<group>"; };
+		68A9FBFF1D16474E0033769C /* KBCommentsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBCommentsController.m; sourceTree = "<group>"; };
+		68A9FC011D169D860033769C /* KBServiceItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBServiceItemModel.h; sourceTree = "<group>"; };
+		68A9FC021D169D860033769C /* KBServiceItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBServiceItemModel.m; sourceTree = "<group>"; };
+		68A9FC041D169DA20033769C /* KBServiceWayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBServiceWayModel.h; sourceTree = "<group>"; };
+		68A9FC051D169DA20033769C /* KBServiceWayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBServiceWayModel.m; sourceTree = "<group>"; };
 		8C663BC1CE4512112A10C9ED /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A03B31F9D109E17E0C3B54A1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB5313CAEF30B823790FE677 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1309,6 +1334,10 @@
 			children = (
 				68A9FB511D11487A0033769C /* KBAnnotationModel.h */,
 				68A9FB521D11487A0033769C /* KBAnnotationModel.m */,
+				68A9FC011D169D860033769C /* KBServiceItemModel.h */,
+				68A9FC021D169D860033769C /* KBServiceItemModel.m */,
+				68A9FC041D169DA20033769C /* KBServiceWayModel.h */,
+				68A9FC051D169DA20033769C /* KBServiceWayModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1324,6 +1353,12 @@
 				68A9FB4F1D1141A60033769C /* KBPointAnnotation.m */,
 				68A9FB4B1D113F500033769C /* KBAnnotation.h */,
 				68A9FB4C1D113F500033769C /* KBAnnotation.m */,
+				68A9FBB51D1632AE0033769C /* KBServiceItemCell.h */,
+				68A9FBB61D1632AE0033769C /* KBServiceItemCell.m */,
+				68A9FBB71D1632AE0033769C /* KBServiceItemCell.xib */,
+				68A9FBBA1D1632BF0033769C /* KBServiceWayCell.h */,
+				68A9FBBB1D1632C00033769C /* KBServiceWayCell.m */,
+				68A9FBBC1D1632C00033769C /* KBServiceWayCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1338,6 +1373,12 @@
 				68A9FB571D1163ED0033769C /* KBShopDetailViewController.m */,
 				68A9FB921D13A7860033769C /* KBChoiceServiceController.h */,
 				68A9FB931D13A7860033769C /* KBChoiceServiceController.m */,
+				68A9FBFE1D16474E0033769C /* KBCommentsController.h */,
+				68A9FBFF1D16474E0033769C /* KBCommentsController.m */,
+				68A9FBAF1D1591520033769C /* KBChoiceServiceItemListDeleget.h */,
+				68A9FBB01D1591520033769C /* KBChoiceServiceItemListDeleget.m */,
+				68A9FBB21D15916A0033769C /* KBChoiceServiceWayListDeleget.h */,
+				68A9FBB31D15916A0033769C /* KBChoiceServiceWayListDeleget.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1742,6 +1783,7 @@
 				1740AF411CB6A8E9007CC5B7 /* my_card_iocn_u.png in Resources */,
 				1740AF4F1CB6A8E9007CC5B7 /* my_tickets_icon_normal.png in Resources */,
 				1740AF8C1CB6A8E9007CC5B7 /* turnplate_bg_right_1.png in Resources */,
+				68A9FBB91D1632AE0033769C /* KBServiceItemCell.xib in Resources */,
 				1740AECE1CB6A8E9007CC5B7 /* food_u.png in Resources */,
 				1740AF241CB6A8E9007CC5B7 /* main_index_my_normal_1.png in Resources */,
 				1740AEB81CB6A8E9007CC5B7 /* choosebar_press_down.9.png in Resources */,
@@ -1757,6 +1799,7 @@
 				1740AF2B1CB6A8E9007CC5B7 /* main_index_search_pressed.png in Resources */,
 				1740AF681CB6A8E9007CC5B7 /* qb_tenpay_loading_9.png in Resources */,
 				1740AE871CB6A8E9007CC5B7 /* address_btn_unselected.9.png in Resources */,
+				68A9FBBE1D1632C00033769C /* KBServiceWayCell.xib in Resources */,
 				1740AF1F1CB6A8E9007CC5B7 /* main_index_checkin_pressed.png in Resources */,
 				1740AF1A1CB6A8E9007CC5B7 /* logout_account_d.png in Resources */,
 				1740AF321CB6A8E9007CC5B7 /* main_tab_bg_pressed.png in Resources */,
@@ -1981,6 +2024,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17471E8E1CA175E700B6C1C7 /* AppDelegate.m in Sources */,
+				68A9FC031D169D860033769C /* KBServiceItemModel.m in Sources */,
 				68A9FB501D1141A60033769C /* KBPointAnnotation.m in Sources */,
 				1740AD501CB6A072007CC5B7 /* KBForgetPasswordViewController.m in Sources */,
 				1740AD561CB6A4F2007CC5B7 /* KBResetPasswordViewController.m in Sources */,
@@ -1990,6 +2034,7 @@
 				17471ED91CA1789B00B6C1C7 /* KBHomePageViewController.m in Sources */,
 				17471E8B1CA175E700B6C1C7 /* main.m in Sources */,
 				6849B6861CF59CD900162550 /* KBAboutUsViewController.m in Sources */,
+				68A9FBB41D15916A0033769C /* KBChoiceServiceWayListDeleget.m in Sources */,
 				1735F73B1CB3D4A8005E577C /* KBLoginViewController.m in Sources */,
 				17471ED21CA1780D00B6C1C7 /* KBTabBarController.m in Sources */,
 				17CE6C431CA57B1E000B7920 /* KBTableViewCell.m in Sources */,
@@ -2003,11 +2048,16 @@
 				68A9FB441D1116420033769C /* ZJModelTool.m in Sources */,
 				17CE6C471CA57D5A000B7920 /* KBOderTableViewCell.m in Sources */,
 				6849B6831CF59C5A00162550 /* KBUserGuidController.m in Sources */,
+				68A9FBB81D1632AE0033769C /* KBServiceItemCell.m in Sources */,
 				68A9FB471D11165B0033769C /* KBUserInfo.m in Sources */,
 				68A9FB581D1163ED0033769C /* KBShopDetailViewController.m in Sources */,
 				17471EE91CA1791B00B6C1C7 /* KBOderViewController.m in Sources */,
+				68A9FC061D169DA20033769C /* KBServiceWayModel.m in Sources */,
 				68A9FB401D0FEA8B0033769C /* KBRegisterWithPasswordController.m in Sources */,
+				68A9FC001D16474E0033769C /* KBCommentsController.m in Sources */,
 				68A9FB4D1D113F500033769C /* KBAnnotation.m in Sources */,
+				68A9FBBD1D1632C00033769C /* KBServiceWayCell.m in Sources */,
+				68A9FBB11D1591520033769C /* KBChoiceServiceItemListDeleget.m in Sources */,
 				68A9FB531D11487A0033769C /* KBAnnotationModel.m in Sources */,
 				68A9FB941D13A7860033769C /* KBChoiceServiceController.m in Sources */,
 			);

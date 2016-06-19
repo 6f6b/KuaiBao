@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KBChoiceServiceItemListDeleget.h"
+#import "KBChoiceServiceWayListDeleget.h"
 
 @interface KBChoiceServiceController : UIViewController
 

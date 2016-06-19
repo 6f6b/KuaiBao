@@ -28,8 +28,8 @@
 #define URL_GET_USERINFO            [BASE_URL stringByAppendingString:@"/customer/getUserById"]
 
 #define URL_ADVERT                  [BASE_URL stringByAppendingString:@"/salesActivity/getAll?"]
-#define U                           [BASE_URL stringByAppendingString:@""]
-#define U                           [BASE_URL stringByAppendingString:@""]
+#define URL_GET_SERVICE_ITEMS       [BASE_URL stringByAppendingString:@"/serviceItemView/getServiceItemViewByCustomer?"]
+#define URL_GET_SERVICE_WAYS        [BASE_URL stringByAppendingString:@"/servicesmode/getAll?"]
 #define U [BASE_URL stringByAppendingString:@""]
 
 #endif /* PrefixHeader_pch */

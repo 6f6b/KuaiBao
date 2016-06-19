@@ -1,34 +1,22 @@
 //
-//  KBShopDetailViewController.m
+//  KBCommentsController.m
 //  KuaiBao
 //
-//  Created by dev.liufeng on 16/6/15.
+//  Created by dev.liufeng on 16/6/19.
 //  Copyright © 2016年 刘丰. All rights reserved.
 //
 
-#import "KBShopDetailViewController.h"
-#import "KBChoiceServiceController.h"
+#import "KBCommentsController.h"
 
-@interface KBShopDetailViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *headImage;
-@property (weak, nonatomic) IBOutlet UILabel *shopName;
-@property (weak, nonatomic) IBOutlet UILabel *address;
+@interface KBCommentsController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *carType;
-@property (weak, nonatomic) IBOutlet UIButton *phoneNumber;
 @end
 
-@implementation KBShopDetailViewController
+@implementation KBCommentsController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"店铺详情";
-    [self.headImage setImageWithURL:[NSURL URLWithString:_annotationModel.image]];
-    self.shopName.text = _annotationModel.shopName;
-    self.address.text = _annotationModel.address;
-    self.carType.text = _annotationModel.carTypes;
-    [self.phoneNumber setTitle:[NSString stringWithFormat:@"    联系电话：%@",_annotationModel.phone] forState:UIControlStateNormal];
-    
+    self.navigationItem.title = @"评价";
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -41,33 +29,25 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)dealCall:(id)sender {
-    NSLog(@"打电话");
-}
-
-- (IBAction)goToProtect:(id)sender {
-    UIViewController *choiceServiceVc = [KBHelper getViewControllerWithStoryBoardName:@"KuaiBao" storyBoardId:@"KBChoiceServiceController"];
-    [self.navigationController pushViewController:choiceServiceVc animated:YES];
-}
-- (IBAction)seeVideo:(id)sender {
-     NSLog(@"看看视频");
-}
-- (IBAction)dealComment:(id)sender {
-    UIViewController *commentVC = [KBHelper getViewControllerWithStoryBoardName:@"KuaiBao" storyBoardId:@"KBCommentsController"];
-    [self.navigationController pushViewController:commentVC animated:YES];
-}
-
 #pragma mark - Table view data source
 
-/*
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 20;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"commentCell" forIndexPath:indexPath];
+    return cell;
     
     // Configure the cell...
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
