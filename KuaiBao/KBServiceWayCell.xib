@@ -17,14 +17,25 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务方式" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsX-QH-bS7">
                         <rect key="frame" x="15" y="0.0" width="68" height="61.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a75-zv-IiC">
+                        <rect key="frame" x="15" y="60.5" width="342" height="1"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="c7Z-QI-yVY"/>
+                        </constraints>
+                    </view>
                 </subviews>
+                <color key="backgroundColor" red="0.039215686274509803" green="0.5490196078431373" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="hsX-QH-bS7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="2b6-wH-Jw5"/>
+                    <constraint firstAttribute="trailing" secondItem="a75-zv-IiC" secondAttribute="trailing" id="NUv-HS-4QP"/>
+                    <constraint firstAttribute="bottom" secondItem="a75-zv-IiC" secondAttribute="bottom" id="VRx-7d-YP7"/>
                     <constraint firstItem="hsX-QH-bS7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Zsi-GC-Awa"/>
                     <constraint firstAttribute="bottom" secondItem="hsX-QH-bS7" secondAttribute="bottom" id="t4N-tZ-eGJ"/>
+                    <constraint firstItem="a75-zv-IiC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="y1B-Qe-B4n"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

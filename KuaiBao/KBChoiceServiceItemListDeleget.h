@@ -11,7 +11,7 @@
 
 @protocol ChoiceServiceItemDelegateDelegate <NSObject>
 
-- (void)choiceServiceItemSelectCellWith;
+- (void)choiceServiceItemSelectCellWith:(KBServiceItemModel *)serviceItemModel;
 
 @end
 @interface KBChoiceServiceItemListDeleget : NSObject<UITableViewDelegate,UITableViewDataSource>

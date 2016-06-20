@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "KBChoiceServiceItemListDeleget.h"
 #import "KBChoiceServiceWayListDeleget.h"
-
+#import "KBAnnotationModel.h"
 @interface KBChoiceServiceController : UIViewController
-
+@property (nonatomic,weak) KBAnnotationModel *annotationModel;
 @end

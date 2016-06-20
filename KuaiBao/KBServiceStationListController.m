@@ -1,32 +1,21 @@
 //
-//  KBShopDetailViewController.m
+//  KBServiceStationListController.m
 //  KuaiBao
 //
-//  Created by dev.liufeng on 16/6/15.
+//  Created by dev.liufeng on 16/6/20.
 //  Copyright © 2016年 刘丰. All rights reserved.
 //
 
-#import "KBShopDetailViewController.h"
-#import "KBLoginViewController.h"
-@interface KBShopDetailViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *headImage;
-@property (weak, nonatomic) IBOutlet UILabel *shopName;
-@property (weak, nonatomic) IBOutlet UILabel *address;
+#import "KBServiceStationListController.h"
 
-@property (weak, nonatomic) IBOutlet UILabel *carType;
-@property (weak, nonatomic) IBOutlet UIButton *phoneNumber;
+@interface KBServiceStationListController ()
+@property (strong,nonatomic) NSMutableArray *dataArray;
 @end
 
-@implementation KBShopDetailViewController
+@implementation KBServiceStationListController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"店铺详情";
-    [self.headImage setImageWithURL:[NSURL URLWithString:_annotationModel.image]];
-    self.shopName.text = _annotationModel.shopName;
-    self.address.text = _annotationModel.address;
-    self.carType.text = _annotationModel.carTypes;
-    [self.phoneNumber setTitle:[NSString stringWithFormat:@"    联系电话：%@",_annotationModel.phone] forState:UIControlStateNormal];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -40,29 +29,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)dealCall:(id)sender {
-    NSLog(@"打电话");
-}
-
-- (IBAction)goToProtect:(id)sender {
-    if(nil == [KBHelper getCustomerId]){
-        UIViewController *loginVC = [KBHelper getViewControllerWithStoryBoardName:@"Mine" storyBoardId:@"KBLoginViewController"];
-        [self.navigationController pushViewController:loginVC animated:YES];
-        return;
-    }
-    KBChoiceServiceController *choiceServiceVc = [KBHelper getViewControllerWithStoryBoardName:@"KuaiBao" storyBoardId:@"KBChoiceServiceController"];
-    choiceServiceVc.annotationModel = self.annotationModel;
-    [self.navigationController pushViewController:choiceServiceVc animated:YES];
-}
-- (IBAction)seeVideo:(id)sender {
-     NSLog(@"看看视频");
-}
-- (IBAction)dealComment:(id)sender {
-    UIViewController *commentVC = [KBHelper getViewControllerWithStoryBoardName:@"KuaiBao" storyBoardId:@"KBCommentsController"];
-    [self.navigationController pushViewController:commentVC animated:YES];
-}
-
 #pragma mark - Table view data source
+
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//#warning Incomplete implementation, return the number of sections
+//    return 0;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//#warning Incomplete implementation, return the number of rows
+//    return 0;
+//}
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

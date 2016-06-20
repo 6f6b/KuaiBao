@@ -10,6 +10,7 @@
 
 @interface KBServiceItemCell()
 @property (weak, nonatomic) IBOutlet UILabel *serviceItemName;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 
 @end
 
@@ -22,6 +23,7 @@
 
 - (void)configWithModel:(KBServiceItemModel *)serviceItemModel{
     self.serviceItemName.text = serviceItemModel.serviceItemname;
+    self.priceLabel.text      = [NSString stringWithFormat:@"%@￥",serviceItemModel.price];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

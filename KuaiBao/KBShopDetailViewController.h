@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "KBAnnotationModel.h"
+#import "KBChoiceServiceController.h"
 
 @interface KBShopDetailViewController : UITableViewController
-@property (nonatomic,strong) KBAnnotationModel *annotationModel;
+@property (nonatomic,weak) KBAnnotationModel *annotationModel;
 @end

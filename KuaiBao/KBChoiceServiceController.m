@@ -37,6 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"服务选择";
+    self.shopName.text = self.annotationModel.shopName;
     
      self.serviceItemListDeleget = [[KBChoiceServiceItemListDeleget alloc] init];
     self.serviceItemListDeleget.delegate = self;
@@ -120,27 +121,31 @@
 
 //隐藏服务项目列表
 - (void)hiddenServiceItemList{
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:0.3 animations:^{
         self.serviceItemsTableViewRightConstraint.constant = -SCREEN_WIDTH*0.5;
+        [self.serviceItemsTableView layoutIfNeeded];
     }];
 }
 //显示服务项目列表
 - (void)showServiceItemList{
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:0.3 animations:^{
         self.serviceItemsTableViewRightConstraint.constant = 0;
+        [self.serviceItemsTableView layoutIfNeeded];
     }];
 }
 
 //隐藏服务方式列表
 - (void)hiddenServiceWayList{
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:0.3 animations:^{
         self.serviceWaysTableViewRightConstraint.constant = -SCREEN_WIDTH*0.5;
+        [self.serviceWaysTableView layoutIfNeeded];
     }];
 }
 //显示服务方式列表
 - (void)showServiceWayList{
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:0.3 animations:^{
         self.serviceWaysTableViewRightConstraint.constant = 0;
+        [self.serviceWaysTableView layoutIfNeeded];
     }];
 }
 
@@ -152,12 +157,14 @@
 }
 
 #pragma mark - 实现tableview的代理的协议
-- (void)choiceServiceItemSelectCellWith{
+- (void)choiceServiceItemSelectCellWith:(KBServiceItemModel *)serviceItemModel{
     [self hiddenAll];
+    [self.serviceItemBtn setTitle:serviceItemModel.serviceItemname forState:UIControlStateNormal];
 }
 
-- (void)choiceServiceWaySelectCellWith{
+- (void)choiceServiceWaySelectCellWith:(KBServiceWayModel *)serviceWayModel{
     [self hiddenAll];
+    [self.serviceWayBtn setTitle:serviceWayModel.name forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -11,7 +11,7 @@
 
 @protocol ChoiceServiceWayDelegateDelegate <NSObject>
 
-- (void)choiceServiceWaySelectCellWith;
+- (void)choiceServiceWaySelectCellWith:(KBServiceWayModel *)serviceWayModel;
 
 @end
 @interface KBChoiceServiceWayListDeleget : NSObject<UITableViewDataSource,UITableViewDelegate>
