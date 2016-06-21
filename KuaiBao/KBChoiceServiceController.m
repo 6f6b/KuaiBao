@@ -9,6 +9,7 @@
 #import "KBChoiceServiceController.h"
 #import "KBChoiceServiceItemListDeleget.h"
 #import "KBChoiceServiceWayListDeleget.h"
+#import "KBServiceStationListController.h"
 
 @interface KBChoiceServiceController ()<ChoiceServiceItemDelegateDelegate,ChoiceServiceWayDelegateDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *serviceItemsTableView;
@@ -26,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *serviceWayBtn;
 @property (weak, nonatomic) IBOutlet UILabel  *shopName;
 @property (weak, nonatomic) IBOutlet UIButton *timeBtn;
+@property (weak, nonatomic) IBOutlet UIButton *serviceStationBtn;
 
 @property (strong,nonatomic) KBChoiceServiceItemListDeleget *serviceItemListDeleget;
 @property (strong,nonatomic) KBChoiceServiceWayListDeleget *serviceWayListDeleget;
@@ -107,6 +109,12 @@
 - (IBAction)dealTimeBtn:(id)sender {
     
 }
+- (IBAction)dealServiceStation:(id)sender {
+     KBServiceStationListController *serviceStationList = [KBHelper getViewControllerWithStoryBoardName:@"KuaiBao" storyBoardId:@"KBServiceStationListController"];
+    serviceStationList.annotationModel = self.annotationModel;
+    serviceStationList.delegate = self;
+    [self.navigationController pushViewController:serviceStationList animated:YES];
+}
 - (IBAction)dealOk:(id)sender {
 }
 
@@ -167,6 +175,9 @@
     [self.serviceWayBtn setTitle:serviceWayModel.name forState:UIControlStateNormal];
 }
 
+- (void)choiceServiceStationSelectCellWith:(KBServiceStationModel *)serviceStationModel{
+    [self.serviceStationBtn setTitle:serviceStationModel.name forState:UIControlStateNormal];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

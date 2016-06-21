@@ -374,6 +374,7 @@
 		68A9FC0C1D17F4D10033769C /* KBServiceStationListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A9FC0B1D17F4D10033769C /* KBServiceStationListController.m */; };
 		68A9FC101D17F5260033769C /* KBServiceStationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A9FC0E1D17F5260033769C /* KBServiceStationCell.m */; };
 		68A9FC111D17F5260033769C /* KBServiceStationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68A9FC0F1D17F5260033769C /* KBServiceStationCell.xib */; };
+		68ACD9101D18D27D0077F818 /* KBServiceStationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 68ACD90F1D18D27D0077F818 /* KBServiceStationModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -806,6 +807,8 @@
 		68A9FC0D1D17F5260033769C /* KBServiceStationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBServiceStationCell.h; sourceTree = "<group>"; };
 		68A9FC0E1D17F5260033769C /* KBServiceStationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBServiceStationCell.m; sourceTree = "<group>"; };
 		68A9FC0F1D17F5260033769C /* KBServiceStationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KBServiceStationCell.xib; sourceTree = "<group>"; };
+		68ACD90E1D18D27D0077F818 /* KBServiceStationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBServiceStationModel.h; sourceTree = "<group>"; };
+		68ACD90F1D18D27D0077F818 /* KBServiceStationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBServiceStationModel.m; sourceTree = "<group>"; };
 		8C663BC1CE4512112A10C9ED /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A03B31F9D109E17E0C3B54A1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB5313CAEF30B823790FE677 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1349,6 +1352,8 @@
 				68A9FC021D169D860033769C /* KBServiceItemModel.m */,
 				68A9FC041D169DA20033769C /* KBServiceWayModel.h */,
 				68A9FC051D169DA20033769C /* KBServiceWayModel.m */,
+				68ACD90E1D18D27D0077F818 /* KBServiceStationModel.h */,
+				68ACD90F1D18D27D0077F818 /* KBServiceStationModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2066,6 +2071,7 @@
 				684878001CF476DC00C1FF73 /* KBMoreViewController.m in Sources */,
 				171F21081CB275FC00BB7532 /* KBViewController.m in Sources */,
 				68A9FB351D0ED2870033769C /* KBHelper.m in Sources */,
+				68ACD9101D18D27D0077F818 /* KBServiceStationModel.m in Sources */,
 				68A9FB441D1116420033769C /* ZJModelTool.m in Sources */,
 				17CE6C471CA57D5A000B7920 /* KBOderTableViewCell.m in Sources */,
 				6849B6831CF59C5A00162550 /* KBUserGuidController.m in Sources */,

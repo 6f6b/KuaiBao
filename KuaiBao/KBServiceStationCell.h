@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KBServiceStationModel.h"
 
 @interface KBServiceStationCell : UITableViewCell
-
+- (void)configWithModel:(KBServiceStationModel *)serviceStationModel;
 @end

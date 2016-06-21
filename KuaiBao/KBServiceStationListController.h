@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KBAnnotationModel.h"
+#import "KBServiceStationCell.h"
+@protocol ChoiceServiceStationDelegateDelegate <NSObject>
 
+- (void)choiceServiceStationSelectCellWith:(KBServiceStationModel *)serviceStationModel;
+
+@end
 @interface KBServiceStationListController : UITableViewController
-
+@property (nonatomic,weak) KBAnnotationModel *annotationModel;
+@property (nonatomic,weak)   id <ChoiceServiceStationDelegateDelegate> delegate;
 @end

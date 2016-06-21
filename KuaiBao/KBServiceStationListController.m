@@ -16,12 +16,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self.tableView registerNib:[UINib nibWithNibName:@"KBServiceStationCell" bundle:nil] forCellReuseIdentifier:@"KBServiceStationCell"];
+    NSDictionary *parameter = @{@"pageSize":@200,@"pageNumber":@1,@"shopId":@57};
+    [KBHelper KBPOST:URL_GET_STATION_BY_SHOP parameters:parameter progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        NSArray *arr = [dic objectForKey:@"data"];
+        NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+        for(NSDictionary *data in arr){
+            KBServiceStationModel *serviceStationModel = [[KBServiceStationModel alloc] init];
+            [serviceStationModel setValuesForKeysWithDictionary:data];
+            [dataArray addObject:serviceStationModel];
+        }
+        self.dataArray = dataArray;
+        [self.tableView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,25 +44,30 @@
 
 #pragma mark - Table view data source
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//#warning Incomplete implementation, return the number of sections
-//    return 0;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//#warning Incomplete implementation, return the number of rows
-//    return 0;
-//}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
 }
-*/
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.dataArray.count;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    KBServiceStationCell *serviceStationCell = [tableView dequeueReusableCellWithIdentifier:@"KBServiceStationCell" forIndexPath:indexPath];
+    KBServiceStationModel *serviceStationModel = self.dataArray[indexPath.row];
+    [serviceStationCell configWithModel:serviceStationModel];
+    return serviceStationCell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.delegate choiceServiceStationSelectCellWith:self.dataArray[indexPath.row]];
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 /*
 // Override to support conditional editing of the table view.

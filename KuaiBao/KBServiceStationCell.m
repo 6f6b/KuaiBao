@@ -8,6 +8,11 @@
 
 #import "KBServiceStationCell.h"
 
+@interface KBServiceStationCell ()
+@property (weak, nonatomic) IBOutlet UILabel *stationName;
+@property (weak, nonatomic) IBOutlet UILabel *stationIntroduce;
+
+@end
 @implementation KBServiceStationCell
 
 - (void)awakeFromNib {
@@ -21,4 +26,8 @@
     // Configure the view for the selected state
 }
 
+- (void)configWithModel:(KBServiceStationModel *)serviceStationModel{
+    self.stationName.text = [NSString stringWithFormat:@"名字：%@",serviceStationModel.name];
+    self.stationIntroduce.text = [NSString stringWithFormat:@"简介：%@",serviceStationModel.stateDesc];
+}
 @end

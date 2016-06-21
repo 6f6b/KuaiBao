@@ -446,6 +446,7 @@
                                                         <rect key="frame" x="100" y="0.0" width="500" height="54"/>
                                                         <state key="normal" title="请选择工位"/>
                                                         <connections>
+                                                            <action selector="dealServiceStation:" destination="pe1-Cq-zIe" eventType="touchUpInside" id="228-QI-bEG"/>
                                                             <action selector="dealTimeBtn:" destination="pe1-Cq-zIe" eventType="touchUpInside" id="i1V-kt-NZP"/>
                                                         </connections>
                                                     </button>
@@ -544,6 +545,7 @@
                         <outlet property="serviceItemsTableView" destination="o7M-5N-Spc" id="L4l-8B-weH"/>
                         <outlet property="serviceItemsTableViewRightConstraint" destination="923-wp-5sJ" id="ORv-dR-kin"/>
                         <outlet property="serviceItemsTableViewWidthConstraint" destination="jso-Xc-mem" id="HKS-5L-Ywa"/>
+                        <outlet property="serviceStationBtn" destination="0i3-FT-18b" id="yZy-6q-mgp"/>
                         <outlet property="serviceWayBtn" destination="Ube-Hq-vcD" id="dg6-Wa-8Yd"/>
                         <outlet property="serviceWaysTableView" destination="P1F-DK-4HC" id="bBy-sa-tuc"/>
                         <outlet property="serviceWaysTableViewRightConstraint" destination="Nug-zb-uxF" id="RLl-Q1-ZeK"/>
@@ -556,39 +558,10 @@
             </objects>
             <point key="canvasLocation" x="-78" y="99"/>
         </scene>
-        <!--Root View Controller-->
-        <scene sceneID="Zpg-rR-hQ0">
-            <objects>
-                <tableViewController id="5ib-sc-kEa" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3yG-7Z-7dy">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="rik-gS-AYz">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rik-gS-AYz" id="Co7-wv-SAJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="5ib-sc-kEa" id="bF4-8o-7l5"/>
-                            <outlet property="delegate" destination="5ib-sc-kEa" id="WcU-m6-SGw"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="bjt-uy-6l7"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I44-7p-zvi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1346" y="220"/>
-        </scene>
         <!--工位选择-->
         <scene sceneID="9s2-u4-UIN">
             <objects>
-                <tableViewController id="kLN-Qn-iAK" customClass="KBServiceStationListController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="KBServiceStationListController" id="kLN-Qn-iAK" customClass="KBServiceStationListController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Jn3-mD-m5q">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -602,7 +575,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v5O-Cg-2Bg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1108" y="993"/>
+            <point key="canvasLocation" x="1372" y="106"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vts-O3-Vfb">
@@ -618,7 +591,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yl2-pc-P9Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="526" y="220"/>
+            <point key="canvasLocation" x="626" y="106"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qgt-Cs-Ay3">
@@ -634,7 +607,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Of-Md-AMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="832" y="-575"/>
+            <point key="canvasLocation" x="658" y="-635"/>
         </scene>
         <!--Comments Controller-->
         <scene sceneID="cDR-Tp-WgV">
@@ -731,7 +704,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EVo-kk-ClY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1495" y="-575"/>
+            <point key="canvasLocation" x="1321" y="-635"/>
         </scene>
     </scenes>
     <resources>
