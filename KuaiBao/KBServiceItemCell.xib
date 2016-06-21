@@ -50,7 +50,7 @@
                 <outlet property="priceLabel" destination="UHF-zK-Bc4" id="tOG-nD-ho7"/>
                 <outlet property="serviceItemName" destination="Rz5-oL-wTW" id="aZ6-O7-VTj"/>
             </connections>
-            <point key="canvasLocation" x="240" y="301"/>
+            <point key="canvasLocation" x="161" y="293"/>
         </tableViewCell>
     </objects>
 </document>

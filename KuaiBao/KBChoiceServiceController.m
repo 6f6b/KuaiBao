@@ -10,11 +10,15 @@
 #import "KBChoiceServiceItemListDeleget.h"
 #import "KBChoiceServiceWayListDeleget.h"
 #import "KBServiceStationListController.h"
+#import "KBGoodsListController.h"
 
 @interface KBChoiceServiceController ()<ChoiceServiceItemDelegateDelegate,ChoiceServiceWayDelegateDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *serviceItemsTableView;
 @property (weak, nonatomic) IBOutlet UITableView *serviceWaysTableView;
 @property (weak, nonatomic) IBOutlet UIView *coverView;
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UIScrollView *contentScrollView;
+@property (weak, nonatomic) IBOutlet UIButton *hiddernDatePickerBtn;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *serviceItemsTableViewRightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *serviceWaysTableViewRightConstraint;
@@ -22,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *serviceWaysTableViewWidthConstraint;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *coverViewWidthConstraint;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *datePickerBottomConstraint;
 
 @property (weak, nonatomic) IBOutlet UIButton *serviceItemBtn;
 @property (weak, nonatomic) IBOutlet UIButton *serviceWayBtn;
@@ -107,7 +113,7 @@
     }];
 }
 - (IBAction)dealTimeBtn:(id)sender {
-    
+    [self showDatePicker];
 }
 - (IBAction)dealServiceStation:(id)sender {
      KBServiceStationListController *serviceStationList = [KBHelper getViewControllerWithStoryBoardName:@"KuaiBao" storyBoardId:@"KBServiceStationListController"];
@@ -116,6 +122,9 @@
     [self.navigationController pushViewController:serviceStationList animated:YES];
 }
 - (IBAction)dealOk:(id)sender {
+}
+- (IBAction)dealHiddenDatePicker:(id)sender {
+    [self hiddenDatePicker];
 }
 
 //隐藏coverView
@@ -136,6 +145,7 @@
 }
 //显示服务项目列表
 - (void)showServiceItemList{
+    [self hiddenDatePicker];
     [UIView animateWithDuration:0.3 animations:^{
         self.serviceItemsTableViewRightConstraint.constant = 0;
         [self.serviceItemsTableView layoutIfNeeded];
@@ -151,9 +161,41 @@
 }
 //显示服务方式列表
 - (void)showServiceWayList{
+    [self hiddenDatePicker];
     [UIView animateWithDuration:0.3 animations:^{
         self.serviceWaysTableViewRightConstraint.constant = 0;
         [self.serviceWaysTableView layoutIfNeeded];
+    }];
+}
+
+//显示时间选择器
+- (void)showDatePicker{
+    self.datePicker.date = [NSDate date];
+    self.datePicker.minimumDate = [NSDate date];
+    [self.datePicker addTarget:self action:@selector(oneDatePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        self.datePickerBottomConstraint.constant = 0;
+        [self.datePicker layoutIfNeeded];
+        [self.hiddernDatePickerBtn layoutIfNeeded];
+        
+    }];
+}
+
+- (void)oneDatePickerValueChanged:(UIDatePicker *)sender{
+    NSDate *select = [sender date]; // 获取被选中的时间
+    NSDateFormatter *selectDateFormatter = [[NSDateFormatter alloc] init];
+    selectDateFormatter.dateFormat = @"yy年MM月dd日 HH时mm分ss秒"; // 设置时间和日期的格式
+    NSString *dateAndTime = [selectDateFormatter stringFromDate:select];
+    [self.timeBtn setTitle:dateAndTime forState:UIControlStateNormal];
+}
+
+//隐藏时间选择器
+- (void)hiddenDatePicker{
+    [UIView animateWithDuration:0.3 animations:^{
+        self.datePickerBottomConstraint.constant = -230;
+        [self.datePicker layoutIfNeeded];
+        [self.hiddernDatePickerBtn layoutIfNeeded];
     }];
 }
 
@@ -164,10 +206,14 @@
     [self hiddenServiceWayList];
 }
 
+
 #pragma mark - 实现tableview的代理的协议
 - (void)choiceServiceItemSelectCellWith:(KBServiceItemModel *)serviceItemModel{
     [self hiddenAll];
     [self.serviceItemBtn setTitle:serviceItemModel.serviceItemname forState:UIControlStateNormal];
+    KBGoodsListController *goodListController = [KBHelper getViewControllerWithStoryBoardName:@"KuaiBao" storyBoardId:@"KBGoodsListController"];
+    goodListController.serviceItemModel = serviceItemModel;
+    [self.navigationController pushViewController:goodListController animated:YES];
 }
 
 - (void)choiceServiceWaySelectCellWith:(KBServiceWayModel *)serviceWayModel{

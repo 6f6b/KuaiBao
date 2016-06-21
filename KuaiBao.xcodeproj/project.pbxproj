@@ -373,8 +373,11 @@
 		68A9FC091D16D7BA0033769C /* KBConfigController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A9FC081D16D7BA0033769C /* KBConfigController.m */; };
 		68A9FC0C1D17F4D10033769C /* KBServiceStationListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A9FC0B1D17F4D10033769C /* KBServiceStationListController.m */; };
 		68A9FC101D17F5260033769C /* KBServiceStationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A9FC0E1D17F5260033769C /* KBServiceStationCell.m */; };
-		68A9FC111D17F5260033769C /* KBServiceStationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68A9FC0F1D17F5260033769C /* KBServiceStationCell.xib */; };
 		68ACD9101D18D27D0077F818 /* KBServiceStationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 68ACD90F1D18D27D0077F818 /* KBServiceStationModel.m */; };
+		68ACD9161D191AB70077F818 /* KBGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 68ACD9151D191AB70077F818 /* KBGoodsModel.m */; };
+		68ACD91A1D191AD80077F818 /* KBGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68ACD9181D191AD80077F818 /* KBGoodsCell.m */; };
+		68ACD91E1D191D690077F818 /* KBGoodsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68ACD91D1D191D690077F818 /* KBGoodsListController.m */; };
+		68ACD9621D1945620077F818 /* KBServiceStationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68ACD9611D1945620077F818 /* KBServiceStationCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -806,9 +809,15 @@
 		68A9FC0B1D17F4D10033769C /* KBServiceStationListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBServiceStationListController.m; sourceTree = "<group>"; };
 		68A9FC0D1D17F5260033769C /* KBServiceStationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBServiceStationCell.h; sourceTree = "<group>"; };
 		68A9FC0E1D17F5260033769C /* KBServiceStationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBServiceStationCell.m; sourceTree = "<group>"; };
-		68A9FC0F1D17F5260033769C /* KBServiceStationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KBServiceStationCell.xib; sourceTree = "<group>"; };
 		68ACD90E1D18D27D0077F818 /* KBServiceStationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBServiceStationModel.h; sourceTree = "<group>"; };
 		68ACD90F1D18D27D0077F818 /* KBServiceStationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBServiceStationModel.m; sourceTree = "<group>"; };
+		68ACD9141D191AB70077F818 /* KBGoodsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBGoodsModel.h; sourceTree = "<group>"; };
+		68ACD9151D191AB70077F818 /* KBGoodsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBGoodsModel.m; sourceTree = "<group>"; };
+		68ACD9171D191AD80077F818 /* KBGoodsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBGoodsCell.h; sourceTree = "<group>"; };
+		68ACD9181D191AD80077F818 /* KBGoodsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBGoodsCell.m; sourceTree = "<group>"; };
+		68ACD91C1D191D690077F818 /* KBGoodsListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBGoodsListController.h; sourceTree = "<group>"; };
+		68ACD91D1D191D690077F818 /* KBGoodsListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBGoodsListController.m; sourceTree = "<group>"; };
+		68ACD9611D1945620077F818 /* KBServiceStationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KBServiceStationCell.xib; sourceTree = "<group>"; };
 		8C663BC1CE4512112A10C9ED /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A03B31F9D109E17E0C3B54A1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB5313CAEF30B823790FE677 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1354,6 +1363,8 @@
 				68A9FC051D169DA20033769C /* KBServiceWayModel.m */,
 				68ACD90E1D18D27D0077F818 /* KBServiceStationModel.h */,
 				68ACD90F1D18D27D0077F818 /* KBServiceStationModel.m */,
+				68ACD9141D191AB70077F818 /* KBGoodsModel.h */,
+				68ACD9151D191AB70077F818 /* KBGoodsModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1377,7 +1388,9 @@
 				68A9FBBC1D1632C00033769C /* KBServiceWayCell.xib */,
 				68A9FC0D1D17F5260033769C /* KBServiceStationCell.h */,
 				68A9FC0E1D17F5260033769C /* KBServiceStationCell.m */,
-				68A9FC0F1D17F5260033769C /* KBServiceStationCell.xib */,
+				68ACD9611D1945620077F818 /* KBServiceStationCell.xib */,
+				68ACD9171D191AD80077F818 /* KBGoodsCell.h */,
+				68ACD9181D191AD80077F818 /* KBGoodsCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1396,6 +1409,8 @@
 				68A9FBFF1D16474E0033769C /* KBCommentsController.m */,
 				68A9FC0A1D17F4D10033769C /* KBServiceStationListController.h */,
 				68A9FC0B1D17F4D10033769C /* KBServiceStationListController.m */,
+				68ACD91C1D191D690077F818 /* KBGoodsListController.h */,
+				68ACD91D1D191D690077F818 /* KBGoodsListController.m */,
 				68A9FBAF1D1591520033769C /* KBChoiceServiceItemListDeleget.h */,
 				68A9FBB01D1591520033769C /* KBChoiceServiceItemListDeleget.m */,
 				68A9FBB21D15916A0033769C /* KBChoiceServiceWayListDeleget.h */,
@@ -1873,7 +1888,6 @@
 				1740AF041CB6A8E9007CC5B7 /* ic_tuan_phone_big.png in Resources */,
 				1740AEE41CB6A8E9007CC5B7 /* home_mbank_6_normal.png in Resources */,
 				1740AF151CB6A8E9007CC5B7 /* label_yellow.9.png in Resources */,
-				68A9FC111D17F5260033769C /* KBServiceStationCell.xib in Resources */,
 				1740AF3F1CB6A8E9007CC5B7 /* my_card_icon_normal_d.png in Resources */,
 				1740AF561CB6A8E9007CC5B7 /* nono.png in Resources */,
 				1740AF131CB6A8E9007CC5B7 /* ktv_u.png in Resources */,
@@ -1963,6 +1977,7 @@
 				1740AF231CB6A8E9007CC5B7 /* main_index_more_pressed.png in Resources */,
 				17471E941CA175E700B6C1C7 /* Main.storyboard in Resources */,
 				1740AF811CB6A8E9007CC5B7 /* tab_bar_bg.9.png in Resources */,
+				68ACD9621D1945620077F818 /* KBServiceStationCell.xib in Resources */,
 				1740AEAF1CB6A8E9007CC5B7 /* choose_item_right.9.png in Resources */,
 				1740AF751CB6A8E9007CC5B7 /* serviceitemlogo.png in Resources */,
 				1740AF831CB6A8E9007CC5B7 /* tiaowen.png in Resources */,
@@ -2060,6 +2075,7 @@
 				17471E8B1CA175E700B6C1C7 /* main.m in Sources */,
 				68A9FC091D16D7BA0033769C /* KBConfigController.m in Sources */,
 				6849B6861CF59CD900162550 /* KBAboutUsViewController.m in Sources */,
+				68ACD91A1D191AD80077F818 /* KBGoodsCell.m in Sources */,
 				68A9FBB41D15916A0033769C /* KBChoiceServiceWayListDeleget.m in Sources */,
 				1735F73B1CB3D4A8005E577C /* KBLoginViewController.m in Sources */,
 				17471ED21CA1780D00B6C1C7 /* KBTabBarController.m in Sources */,
@@ -2079,9 +2095,11 @@
 				68A9FB471D11165B0033769C /* KBUserInfo.m in Sources */,
 				68A9FB581D1163ED0033769C /* KBShopDetailViewController.m in Sources */,
 				68A9FC0C1D17F4D10033769C /* KBServiceStationListController.m in Sources */,
+				68ACD9161D191AB70077F818 /* KBGoodsModel.m in Sources */,
 				17471EE91CA1791B00B6C1C7 /* KBOderViewController.m in Sources */,
 				68A9FC061D169DA20033769C /* KBServiceWayModel.m in Sources */,
 				68A9FB401D0FEA8B0033769C /* KBRegisterWithPasswordController.m in Sources */,
+				68ACD91E1D191D690077F818 /* KBGoodsListController.m in Sources */,
 				68A9FC001D16474E0033769C /* KBCommentsController.m in Sources */,
 				68A9FB4D1D113F500033769C /* KBAnnotation.m in Sources */,
 				68A9FBBD1D1632C00033769C /* KBServiceWayCell.m in Sources */,

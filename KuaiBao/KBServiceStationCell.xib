@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -26,13 +27,33 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OLR-fC-LVf">
+                        <rect key="frame" x="15" y="58.5" width="387" height="1"/>
+                        <color key="backgroundColor" red="0.74509803921568629" green="0.74509803921568629" blue="0.74509803921568629" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="4ff-iz-Qyr"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="pTh-3f-HuY" firstAttribute="leading" secondItem="2W9-Bf-g6H" secondAttribute="leading" id="124-5Z-Gp4"/>
                     <constraint firstItem="pTh-3f-HuY" firstAttribute="top" secondItem="2W9-Bf-g6H" secondAttribute="bottom" constant="5" id="3AM-n3-eoC"/>
+                    <constraint firstItem="OLR-fC-LVf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="KXO-gD-Nqm"/>
+                    <constraint firstAttribute="bottom" secondItem="OLR-fC-LVf" secondAttribute="bottom" id="OLv-Zz-myb"/>
                     <constraint firstItem="2W9-Bf-g6H" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="PZC-4I-taB"/>
+                    <constraint firstItem="OLR-fC-LVf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="SzF-16-upE"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="OLR-fC-LVf" secondAttribute="trailing" id="b1V-y8-b0d"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="OLR-fC-LVf" secondAttribute="bottom" id="ddZ-bF-QvR"/>
                     <constraint firstItem="2W9-Bf-g6H" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="e2X-th-MLD"/>
+                    <constraint firstAttribute="trailing" secondItem="OLR-fC-LVf" secondAttribute="trailing" id="gJf-a4-jxC"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="KXO-gD-Nqm"/>
+                        <exclude reference="b1V-y8-b0d"/>
+                        <exclude reference="ddZ-bF-QvR"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="stationIntroduce" destination="pTh-3f-HuY" id="Or6-Dn-a6H"/>

@@ -32,7 +32,8 @@
 #define URL_GET_SERVICE_WAYS        [BASE_URL stringByAppendingString:@"/servicesmode/getAll?"]
 
 #define URL_GET_STATION_BY_SHOP     [BASE_URL stringByAppendingString:@"/shop/getStationByShop"]
-//#define U [BASE_URL stringByAppendingString:@""]
+
+#define URL_GET_GOODS [BASE_URL stringByAppendingString:@"/pAndPTypeAndPPackageViewController/getProductByCustomeridAndServiceItemid"]
 //#define U [BASE_URL stringByAppendingString:@""]
 //#define U [BASE_URL stringByAppendingString:@""]
 //#define U [BASE_URL stringByAppendingString:@""]
