@@ -64,9 +64,12 @@
     KBGoodsModel *goodsModel = self.dataArray[indexPath.section][indexPath.row];
     [cell configWithModel:goodsModel];
     
-    // Configure the cell...
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

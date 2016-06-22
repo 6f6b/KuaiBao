@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *priceNow;
 @property (weak, nonatomic) IBOutlet UILabel *priceBefore;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *recommendScroreConstraint;
+@property (weak, nonatomic) IBOutlet UIImageView *scroreImageView;
 
 
 @end
@@ -31,8 +32,8 @@
     self.priceNow.text = [NSString stringWithFormat:@"现价：%@",goodsModel.price];
     self.priceBefore.text = [NSString stringWithFormat:@"原价：%@",goodsModel.oldPrice];
     float ratio = [goodsModel.productRecommand floatValue]/5.0;
-    NSLog(@"rec--->%f",ratio );
-    self.recommendScroreConstraint.constant = 100*ratio;
+
+    self.recommendScroreConstraint.constant = ratio*100;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
