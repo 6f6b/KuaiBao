@@ -69,7 +69,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.tableView reloadData];
+//    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

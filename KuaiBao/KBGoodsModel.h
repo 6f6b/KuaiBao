@@ -33,4 +33,5 @@
 @property (nonatomic,copy) NSNumber *price;
 @property (nonatomic,copy) NSString *productTypeDesc;
 @property (nonatomic,copy) NSNumber *productTypeId;
+@property (nonatomic,assign) NSNumber *buyNum;
 @end
