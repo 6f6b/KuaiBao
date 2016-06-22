@@ -9,12 +9,15 @@
 #import "KBChoiceServiceController.h"
 #import "KBChoiceServiceItemListDeleget.h"
 #import "KBChoiceServiceWayListDeleget.h"
+#import "KBServiceTimeQuantumDelegate.h"
 #import "KBServiceStationListController.h"
 #import "KBGoodsListController.h"
 
-@interface KBChoiceServiceController ()<ChoiceServiceItemDelegateDelegate,ChoiceServiceWayDelegateDelegate>
+@interface KBChoiceServiceController ()<ChoiceServiceItemDelegateDelegate,ChoiceServiceWayDelegateDelegate,ServiceTimeQuantumDelegateDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *serviceItemsTableView;
 @property (weak, nonatomic) IBOutlet UITableView *serviceWaysTableView;
+@property (weak, nonatomic) IBOutlet UITableView *serviceTimeQuantumTableView;
+
 @property (weak, nonatomic) IBOutlet UIView *coverView;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UIScrollView *contentScrollView;
@@ -22,8 +25,11 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *serviceItemsTableViewRightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *serviceWaysTableViewRightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *serviceTimeQuantumRightConstraint;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *serviceItemsTableViewWidthConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *serviceWaysTableViewWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *serviceTimeQuantumWidthConstraint;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *coverViewWidthConstraint;
 
@@ -34,10 +40,11 @@
 @property (weak, nonatomic) IBOutlet UILabel  *shopName;
 @property (weak, nonatomic) IBOutlet UIButton *timeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *serviceStationBtn;
+@property (weak, nonatomic) IBOutlet UIButton *serviceTimeQuantumBtn;
 
 @property (strong,nonatomic) KBChoiceServiceItemListDeleget *serviceItemListDeleget;
 @property (strong,nonatomic) KBChoiceServiceWayListDeleget *serviceWayListDeleget;
-
+@property (strong,nonatomic) KBServiceTimeQuantumDelegate *serviceTimeQuantumDelegate;
 @end
 
 @implementation KBChoiceServiceController
@@ -59,8 +66,15 @@
     self.serviceWaysTableView.dataSource = self.serviceWayListDeleget;
     [self.serviceWaysTableView registerNib:[UINib nibWithNibName:@"KBServiceWayCell" bundle:nil] forCellReuseIdentifier:@"KBServiceWayCell"];
     
+    self.serviceTimeQuantumDelegate = [[KBServiceTimeQuantumDelegate alloc] init];
+    self.serviceTimeQuantumDelegate.delegate = self;
+    self.serviceTimeQuantumTableView.delegate = self.serviceTimeQuantumDelegate;
+    self.serviceTimeQuantumTableView.dataSource = self.serviceTimeQuantumDelegate;
+    [self.serviceTimeQuantumTableView registerNib:[UINib nibWithNibName:@"KBServiceTimeQuantumCell" bundle:nil] forCellReuseIdentifier:@"KBServiceTimeQuantumCell"];
+    
     self.serviceItemsTableViewWidthConstraint.constant = SCREEN_WIDTH*0.5;
     self.serviceWaysTableViewWidthConstraint.constant  = SCREEN_WIDTH*0.5;
+    self.serviceTimeQuantumWidthConstraint.constant  = SCREEN_WIDTH*0.5;
     self.coverViewWidthConstraint.constant = 0;
     
     [self hiddenServiceItemList];
@@ -112,6 +126,29 @@
         
     }];
 }
+- (IBAction)dealTimeQuantum:(id)sender {
+    [self showServiceTimeQuantumList];
+    [self showCoverView];
+    NSDictionary *parameter = @{@"pageSize":@200,@"pageNumber":@1};
+    [KBHelper KBPOST:URL_GET_TIME_QUANTUM parameters:parameter progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        NSArray *arr = [dic objectForKey:@"data"];
+        NSLog(@"%@",arr);
+        NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+        for(NSDictionary *data in arr){
+            KBServiceTimeQuantumModel *serviceTimeQuantumModel = [[KBServiceTimeQuantumModel alloc] init];
+            [serviceTimeQuantumModel setValuesForKeysWithDictionary:data];
+            [dataArray addObject:serviceTimeQuantumModel];
+        }
+        self.serviceTimeQuantumDelegate.dataArray = dataArray;
+        [self.serviceTimeQuantumTableView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+}
+
 - (IBAction)dealTimeBtn:(id)sender {
     [self showDatePicker];
 }
@@ -168,6 +205,22 @@
     }];
 }
 
+//隐藏时间段列表
+- (void)hiddenServiceTimeQuantumList{
+    [UIView animateWithDuration:0.3 animations:^{
+        self.serviceTimeQuantumRightConstraint.constant = -SCREEN_WIDTH*0.5;
+        [self.serviceTimeQuantumTableView layoutIfNeeded];
+    }];
+}
+//显示时间段列表
+- (void)showServiceTimeQuantumList{
+    [self hiddenDatePicker];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.serviceTimeQuantumRightConstraint.constant = 0;
+        [self.serviceTimeQuantumTableView layoutIfNeeded];
+    }];
+}
+
 //显示时间选择器
 - (void)showDatePicker{
     self.datePicker.date = [NSDate date];
@@ -185,7 +238,7 @@
 - (void)oneDatePickerValueChanged:(UIDatePicker *)sender{
     NSDate *select = [sender date]; // 获取被选中的时间
     NSDateFormatter *selectDateFormatter = [[NSDateFormatter alloc] init];
-    selectDateFormatter.dateFormat = @"yy年MM月dd日 HH时mm分ss秒"; // 设置时间和日期的格式
+    selectDateFormatter.dateFormat = @"yy年MM月dd日"; // 设置时间和日期的格式
     NSString *dateAndTime = [selectDateFormatter stringFromDate:select];
     [self.timeBtn setTitle:dateAndTime forState:UIControlStateNormal];
 }
@@ -204,6 +257,7 @@
     [self hiddenCoverView];
     [self hiddenServiceItemList];
     [self hiddenServiceWayList];
+    [self hiddenServiceTimeQuantumList];
 }
 
 
@@ -223,6 +277,31 @@
 
 - (void)choiceServiceStationSelectCellWith:(KBServiceStationModel *)serviceStationModel{
     [self.serviceStationBtn setTitle:serviceStationModel.name forState:UIControlStateNormal];
+}
+
+- (void)serviceTimeQuantumSelectCellWith:(KBServiceTimeQuantumModel *)serviceTimeQuantumModel{
+    NSDate *currentDate = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm"];
+    NSString *currentDateStr = [dateFormatter stringFromDate:currentDate];
+    currentDate = [dateFormatter dateFromString:currentDateStr];
+    NSDate *beginDate = [dateFormatter dateFromString:serviceTimeQuantumModel.beginTime];
+    
+    NSComparisonResult *result = [currentDate compare:beginDate];
+    if(result == NSOrderedAscending){
+        [self.serviceTimeQuantumBtn setTitle:serviceTimeQuantumModel.timeName forState:UIControlStateNormal];
+    }
+    else{
+        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"注意" message:@"选择时间段必须大于当前时间" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [alertVC addAction:okAction];
+        
+        [self presentViewController:alertVC animated:YES completion:^{
+            
+        }];
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

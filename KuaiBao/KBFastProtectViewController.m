@@ -84,7 +84,6 @@
     
     cloudLocalSearch.region = @"";
     cloudLocalSearch.keyword = self.searchBar.text;
-    NSLog(@"searchText-->%@",self.searchBar.text);
     BOOL flag = [self.cloudSearch localSearchWithSearchInfo:cloudLocalSearch];
     if(flag){
         NSLog(@"本地云检索发送成功");
@@ -138,7 +137,6 @@
             
             KBAnnotationModel *annotationModel = [KBAnnotationModel new];
             [annotationModel setValuesForKeysWithDictionary:poi.customDict];
-            NSLog(@"%@",poi.customDict);
             annotationModel.uid = poi.uid;
             annotationModel.shopName = poi.title;
             annotationModel.address = poi.address;

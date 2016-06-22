@@ -26,15 +26,12 @@
 #define URL_LOGIN                   [BASE_URL stringByAppendingString:@"/customer/login"]
 #define URL_UPDATEPWD               [BASE_URL stringByAppendingString:@"/customer/updatePwd"]
 #define URL_GET_USERINFO            [BASE_URL stringByAppendingString:@"/customer/getUserById"]
-
 #define URL_ADVERT                  [BASE_URL stringByAppendingString:@"/salesActivity/getAll?"]
 #define URL_GET_SERVICE_ITEMS       [BASE_URL stringByAppendingString:@"/serviceItemView/getServiceItemViewByCustomer?"]
 #define URL_GET_SERVICE_WAYS        [BASE_URL stringByAppendingString:@"/servicesmode/getAll?"]
-
 #define URL_GET_STATION_BY_SHOP     [BASE_URL stringByAppendingString:@"/shop/getStationByShop"]
-
-#define URL_GET_GOODS [BASE_URL stringByAppendingString:@"/pAndPTypeAndPPackageViewController/getProductByCustomeridAndServiceItemid"]
-//#define U [BASE_URL stringByAppendingString:@""]
+#define URL_GET_GOODS               [BASE_URL stringByAppendingString:@"/pAndPTypeAndPPackageViewController/getProductByCustomeridAndServiceItemid"]
+#define URL_GET_TIME_QUANTUM        [BASE_URL stringByAppendingString:@"/shop/getTimeQuantumByShop?"]
 //#define U [BASE_URL stringByAppendingString:@""]
 //#define U [BASE_URL stringByAppendingString:@""]
 //#define U [BASE_URL stringByAppendingString:@""]

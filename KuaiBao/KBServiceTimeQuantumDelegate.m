@@ -1,14 +1,14 @@
 //
-//  KBChoiceServiceItemListDeleget.m
+//  KBServiceTimeQuantumDelegate.m
 //  KuaiBao
 //
-//  Created by dev.liufeng on 16/6/18.
+//  Created by dev.liufeng on 16/6/22.
 //  Copyright © 2016年 刘丰. All rights reserved.
 //
 
-#import "KBChoiceServiceItemListDeleget.h"
+#import "KBServiceTimeQuantumDelegate.h"
 
-@implementation KBChoiceServiceItemListDeleget
+@implementation KBServiceTimeQuantumDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
@@ -18,17 +18,17 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self.delegate choiceServiceItemSelectCellWith:self.dataArray[indexPath.row]];
+    [self.delegate serviceTimeQuantumSelectCellWith:self.dataArray[indexPath.row]];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    KBServiceItemCell *serviceItemCell = [tableView dequeueReusableCellWithIdentifier:@"KBServiceItemCell"];
-    KBServiceItemModel *serviceItemModel = self.dataArray[indexPath.row];
-    [serviceItemCell configWithModel:serviceItemModel];
-    return serviceItemCell;
+    KBServiceTimeQuantumCell *serviceTimeQuantumCell = [tableView dequeueReusableCellWithIdentifier:@"KBServiceTimeQuantumCell"];
+    KBServiceTimeQuantumModel *serviceTimeQuantumModel = self.dataArray[indexPath.row];
+    [serviceTimeQuantumCell configWithModel:serviceTimeQuantumModel];
+    return serviceTimeQuantumCell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 50;
+    return 40;
 }
 @end
