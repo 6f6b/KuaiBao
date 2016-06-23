@@ -128,7 +128,6 @@
 }
 - (IBAction)dealTimeQuantum:(id)sender {
     [self showServiceTimeQuantumList];
-    [self showCoverView];
     NSDictionary *parameter = @{@"pageSize":@200,@"pageNumber":@1};
     [KBHelper KBPOST:URL_GET_TIME_QUANTUM parameters:parameter progress:^(NSProgress * _Nonnull uploadProgress) {
         
@@ -215,6 +214,19 @@
 //显示时间段列表
 - (void)showServiceTimeQuantumList{
     [self hiddenDatePicker];
+    if([self.timeBtn.titleLabel.text  isEqual: @"请选择时间"]){
+        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"注意" message:@"请先选择日期" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [alertVC addAction:okAction];
+        
+        [self presentViewController:alertVC animated:YES completion:^{
+            
+        }];
+        return;
+    }
+    [self showCoverView];
     [UIView animateWithDuration:0.3 animations:^{
         self.serviceTimeQuantumRightConstraint.constant = 0;
         [self.serviceTimeQuantumTableView layoutIfNeeded];
@@ -280,14 +292,21 @@
 }
 
 - (void)serviceTimeQuantumSelectCellWith:(KBServiceTimeQuantumModel *)serviceTimeQuantumModel{
+    //当前时间
     NSDate *currentDate = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"HH:mm"];
+    [dateFormatter setDateFormat:@"yy年MM月dd日HH:mm"];
     NSString *currentDateStr = [dateFormatter stringFromDate:currentDate];
     currentDate = [dateFormatter dateFromString:currentDateStr];
-    NSDate *beginDate = [dateFormatter dateFromString:serviceTimeQuantumModel.beginTime];
+    NSLog(@"current--->%@",currentDate);
     
-    NSComparisonResult *result = [currentDate compare:beginDate];
+    //选择时间
+    NSString *dateBeginStr = [self.timeBtn.titleLabel.text stringByAppendingString:serviceTimeQuantumModel.beginTime];
+    NSDate *dateBegin = [dateFormatter dateFromString:dateBeginStr];
+    NSLog(@"dateBeginStr--->%@",dateBeginStr);
+    NSLog(@"dateBegin--->%@",dateBegin);
+    
+    NSComparisonResult result = [currentDate compare:dateBegin];
     if(result == NSOrderedAscending){
         [self.serviceTimeQuantumBtn setTitle:serviceTimeQuantumModel.timeName forState:UIControlStateNormal];
     }

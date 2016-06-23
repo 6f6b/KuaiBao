@@ -19,6 +19,7 @@
 #import "KBHelper.h"
 #import "ZJModelTool.h"
 #import <UIKit+AFNetworking.h>
+#import "MJExtension.h"
 
 #define URL_GET_VERIFYCODE          [BASE_URL stringByAppendingString:@"/customer/getValidateCode?"]
 #define URL_VERIFY_VERIFYCODE       [BASE_URL stringByAppendingString:@"/customer/validatePwd"]
