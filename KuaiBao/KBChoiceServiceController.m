@@ -11,17 +11,17 @@
 #import "KBChoiceServiceWayListDeleget.h"
 #import "KBServiceTimeQuantumDelegate.h"
 #import "KBServiceStationListController.h"
-#import "KBGoodsListController.h"
+#import "KBGoodsListViewController.h"
 
-@interface KBChoiceServiceController ()<ChoiceServiceItemDelegateDelegate,ChoiceServiceWayDelegateDelegate,ServiceTimeQuantumDelegateDelegate>
+@interface KBChoiceServiceController ()<ChoiceServiceItemDelegateDelegate,ChoiceServiceWayDelegateDelegate,ServiceTimeQuantumDelegateDelegate,ChoiceServiceStationDelegateDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *serviceItemsTableView;
 @property (weak, nonatomic) IBOutlet UITableView *serviceWaysTableView;
 @property (weak, nonatomic) IBOutlet UITableView *serviceTimeQuantumTableView;
 
-@property (weak, nonatomic) IBOutlet UIView *coverView;
+@property (weak, nonatomic) IBOutlet UIView       *coverView;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UIScrollView *contentScrollView;
-@property (weak, nonatomic) IBOutlet UIButton *hiddernDatePickerBtn;
+@property (weak, nonatomic) IBOutlet UIButton     *hiddernDatePickerBtn;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *serviceItemsTableViewRightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *serviceWaysTableViewRightConstraint;
@@ -43,8 +43,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *serviceTimeQuantumBtn;
 
 @property (strong,nonatomic) KBChoiceServiceItemListDeleget *serviceItemListDeleget;
-@property (strong,nonatomic) KBChoiceServiceWayListDeleget *serviceWayListDeleget;
-@property (strong,nonatomic) KBServiceTimeQuantumDelegate *serviceTimeQuantumDelegate;
+@property (strong,nonatomic) KBChoiceServiceWayListDeleget  *serviceWayListDeleget;
+@property (strong,nonatomic) KBServiceTimeQuantumDelegate   *serviceTimeQuantumDelegate;
+
+@property (nonatomic,strong) KBServiceItemModel             *serviceItemModel;
+@property (nonatomic,strong) KBServiceWayModel              *serviceWayModel;
+//@property
 @end
 
 @implementation KBChoiceServiceController
@@ -152,7 +156,7 @@
     [self showDatePicker];
 }
 - (IBAction)dealServiceStation:(id)sender {
-     KBServiceStationListController *serviceStationList = [KBHelper getViewControllerWithStoryBoardName:@"KuaiBao" storyBoardId:@"KBServiceStationListController"];
+     KBServiceStationListController *serviceStationList = (KBServiceStationListController *)[KBHelper getViewControllerWithStoryBoardName:@"KuaiBao" storyBoardId:@"KBServiceStationListController"];
     serviceStationList.annotationModel = self.annotationModel;
     serviceStationList.delegate = self;
     [self.navigationController pushViewController:serviceStationList animated:YES];
@@ -182,6 +186,7 @@
 //显示服务项目列表
 - (void)showServiceItemList{
     [self hiddenDatePicker];
+    self.selectProductArray = nil;
     [UIView animateWithDuration:0.3 animations:^{
         self.serviceItemsTableViewRightConstraint.constant = 0;
         [self.serviceItemsTableView layoutIfNeeded];
@@ -276,14 +281,16 @@
 #pragma mark - 实现tableview的代理的协议
 - (void)choiceServiceItemSelectCellWith:(KBServiceItemModel *)serviceItemModel{
     [self hiddenAll];
+    self.serviceItemModel = serviceItemModel;
     [self.serviceItemBtn setTitle:serviceItemModel.serviceItemname forState:UIControlStateNormal];
-    KBGoodsListController *goodListController = [KBHelper getViewControllerWithStoryBoardName:@"KuaiBao" storyBoardId:@"KBGoodsListController"];
+    KBGoodsListViewController *goodListController = (KBGoodsListViewController *)[KBHelper getViewControllerWithStoryBoardName:@"KuaiBao" storyBoardId:@"KBGoodsListViewController"];
     goodListController.serviceItemModel = serviceItemModel;
     [self.navigationController pushViewController:goodListController animated:YES];
 }
 
 - (void)choiceServiceWaySelectCellWith:(KBServiceWayModel *)serviceWayModel{
     [self hiddenAll];
+    self.serviceWayModel = serviceWayModel;
     [self.serviceWayBtn setTitle:serviceWayModel.name forState:UIControlStateNormal];
 }
 
@@ -298,13 +305,10 @@
     [dateFormatter setDateFormat:@"yy年MM月dd日HH:mm"];
     NSString *currentDateStr = [dateFormatter stringFromDate:currentDate];
     currentDate = [dateFormatter dateFromString:currentDateStr];
-    NSLog(@"current--->%@",currentDate);
     
     //选择时间
     NSString *dateBeginStr = [self.timeBtn.titleLabel.text stringByAppendingString:serviceTimeQuantumModel.beginTime];
     NSDate *dateBegin = [dateFormatter dateFromString:dateBeginStr];
-    NSLog(@"dateBeginStr--->%@",dateBeginStr);
-    NSLog(@"dateBegin--->%@",dateBegin);
     
     NSComparisonResult result = [currentDate compare:dateBegin];
     if(result == NSOrderedAscending){
@@ -322,19 +326,26 @@
         }];
     }
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+    NSString *serviceItemString;
+    if(nil != self.serviceItemModel.serviceItemname){
+         serviceItemString = self.serviceItemModel.serviceItemname;
+    }
+    else{
+        serviceItemString = self.serviceItemBtn.titleLabel.text;
+    }
+    for(KBGoodsModel *goodsModel in self.selectProductArray){
+        serviceItemString = [serviceItemString stringByAppendingString:[NSString stringWithFormat:@"+%@X%@",goodsModel.productTypeName,goodsModel.buyNum]];
+    }
+    [self.serviceItemBtn setTitle:serviceItemString forState:UIControlStateNormal];
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

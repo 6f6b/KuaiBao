@@ -16,16 +16,12 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *recommendScroreConstraint;
 @property (weak, nonatomic) IBOutlet UIImageView *scroreImageView;
 
-@property (weak, nonatomic) IBOutlet UIStepper *stepper;
-@property (weak, nonatomic) IBOutlet UILabel *buyNumber;
 @property (nonatomic,weak) KBGoodsModel *goodsModel;
 @end
 @implementation KBGoodsCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self.stepper addTarget:self action:@selector(buyNumberChangedWith:) forControlEvents:UIControlEventValueChanged];
-    // Initialization code
 }
 
 - (void)configWithModel:(KBGoodsModel *)goodsModel{
@@ -38,13 +34,19 @@
     float ratio = [goodsModel.productRecommand floatValue]/5.0;
 
     self.recommendScroreConstraint.constant = ratio*100;
-    self.buyNumber.text = [NSString stringWithFormat:@"%@",self.goodsModel.buyNum];
 }
 
-- (void)buyNumberChangedWith:(UIStepper *)stepper{
-    self.goodsModel.buyNum = [NSNumber numberWithInt:(int)stepper.value];
-    self.buyNumber.text = [NSString stringWithFormat:@"%@",self.goodsModel.buyNum];
+- (IBAction)dealPutIntoShoppingTrolley:(id)sender {
+    UIButton *button = sender;
+    button.selected = !button.selected;
+    if(button.selected){
+        self.goodsModel.buyNum = @1;
+    }
+    else{
+        self.goodsModel.buyNum = @0;
+    }
 }
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     

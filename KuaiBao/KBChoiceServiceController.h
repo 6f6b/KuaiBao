@@ -11,5 +11,6 @@
 #import "KBChoiceServiceWayListDeleget.h"
 #import "KBAnnotationModel.h"
 @interface KBChoiceServiceController : UIViewController
-@property (nonatomic,weak) KBAnnotationModel *annotationModel;
+@property (nonatomic,weak)   KBAnnotationModel *annotationModel;
+@property (nonatomic,strong) NSMutableArray    *selectProductArray;
 @end

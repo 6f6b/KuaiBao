@@ -1,8 +1,8 @@
 //
-//  KBGoodsListController.h
+//  KBGoodsListViewController.h
 //  KuaiBao
 //
-//  Created by dev.liufeng on 16/6/21.
+//  Created by dev.liufeng on 16/6/24.
 //  Copyright © 2016年 刘丰. All rights reserved.
 //
 
@@ -13,7 +13,8 @@
 @protocol ChoiceGoodsDelegateDelegate <NSObject>
 - (void)choiceGoodsSelectCellWith:(KBGoodsModel *)goodsModel;
 @end
-@interface KBGoodsListController : UITableViewController
+@interface KBGoodsListViewController : UIViewController
 @property (nonatomic,weak) id <ChoiceGoodsDelegateDelegate> delegate;
 @property (nonatomic,weak) KBServiceItemModel *serviceItemModel;
+
 @end
