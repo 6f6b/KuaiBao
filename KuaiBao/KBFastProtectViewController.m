@@ -150,7 +150,6 @@
 
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation{
     [self.mapView updateLocationData:userLocation];
-//    NSLog(@"%@",userLocation.subtitle);
     self.location = userLocation.location;
 }
 

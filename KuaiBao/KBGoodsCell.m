@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *priceBefore;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *recommendScroreConstraint;
 @property (weak, nonatomic) IBOutlet UIImageView *scroreImageView;
+@property (weak, nonatomic) IBOutlet UILabel *buyNum;
 
 @property (nonatomic,weak) KBGoodsModel *goodsModel;
 @end
@@ -36,17 +37,12 @@
     self.recommendScroreConstraint.constant = ratio*100;
 }
 
-- (IBAction)dealPutIntoShoppingTrolley:(id)sender {
-    UIButton *button = sender;
-    button.selected = !button.selected;
-    if(button.selected){
-        self.goodsModel.buyNum = @1;
-    }
-    else{
-        self.goodsModel.buyNum = @0;
-    }
-}
 
+- (IBAction)dealChangeBuyNumber:(id)sender {
+    UIStepper *stepper = sender;
+    self.goodsModel.buyNum = (int)stepper.value;
+    self.buyNum.text = [NSString stringWithFormat:@"%d",self.goodsModel.buyNum];
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     

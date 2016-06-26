@@ -350,6 +350,7 @@
 		6849B6831CF59C5A00162550 /* KBUserGuidController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6849B6821CF59C5A00162550 /* KBUserGuidController.m */; };
 		6849B6861CF59CD900162550 /* KBAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6849B6851CF59CD900162550 /* KBAboutUsViewController.m */; };
 		6856719D1D1D2BD900DEF234 /* KBGoodsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6856719C1D1D2BD900DEF234 /* KBGoodsListViewController.m */; };
+		6856719F1D1FC69B00DEF234 /* libMJExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6856719E1D1FC69B00DEF234 /* libMJExtension.a */; };
 		68A9FB351D0ED2870033769C /* KBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A9FB341D0ED2870033769C /* KBHelper.m */; };
 		68A9FB3D1D0FEA6D0033769C /* KBRegisterWithAccountController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A9FB3C1D0FEA6D0033769C /* KBRegisterWithAccountController.m */; };
 		68A9FB401D0FEA8B0033769C /* KBRegisterWithPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A9FB3F1D0FEA8B0033769C /* KBRegisterWithPasswordController.m */; };
@@ -770,6 +771,7 @@
 		6849B6851CF59CD900162550 /* KBAboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBAboutUsViewController.m; sourceTree = "<group>"; };
 		6856719B1D1D2BD900DEF234 /* KBGoodsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBGoodsListViewController.h; sourceTree = "<group>"; };
 		6856719C1D1D2BD900DEF234 /* KBGoodsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBGoodsListViewController.m; sourceTree = "<group>"; };
+		6856719E1D1FC69B00DEF234 /* libMJExtension.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMJExtension.a; path = "../Library/Developer/Xcode/DerivedData/KuaiBao-amzvhhzkeybcwygbmvuskmqxaofg/Build/Products/Debug-iphonesimulator/libMJExtension.a"; sourceTree = "<group>"; };
 		68A9FB331D0ED2870033769C /* KBHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBHelper.h; sourceTree = "<group>"; };
 		68A9FB341D0ED2870033769C /* KBHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBHelper.m; sourceTree = "<group>"; };
 		68A9FB381D0FDFB20033769C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -839,6 +841,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6856719F1D1FC69B00DEF234 /* libMJExtension.a in Frameworks */,
 				68A9FBAC1D151D0D0033769C /* libAFNetworking.a in Frameworks */,
 				178E170D1CA3C2160032920C /* libstdc++.6.0.9.tbd in Frameworks */,
 				178E170B1CA3C2090032920C /* CoreTelephony.framework in Frameworks */,
@@ -1585,6 +1588,7 @@
 		CDF471768AD4A32E577FA83B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6856719E1D1FC69B00DEF234 /* libMJExtension.a */,
 				68A9FB391D0FE8BB0033769C /* libAFNetworking.a */,
 				A03B31F9D109E17E0C3B54A1 /* libPods.a */,
 			);
@@ -1662,7 +1666,7 @@
 				TargetAttributes = {
 					17471E851CA175E700B6C1C7 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = T6A5794LJU;
+						DevelopmentTeam = RCCSSV3NAS;
 					};
 					17471E9E1CA175E800B6C1C7 = {
 						CreatedOnToolsVersion = 7.2;
@@ -2271,6 +2275,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/KuaiBao",
@@ -2279,9 +2284,10 @@
 				INFOPLIST_FILE = KuaiBao/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = liufeng.KuaiBao;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kuaibao.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "0592bcc4-3418-46d3-bcb6-0ecbf5f75f23";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -2292,6 +2298,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/KuaiBao",
@@ -2300,9 +2307,10 @@
 				INFOPLIST_FILE = KuaiBao/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = liufeng.KuaiBao;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kuaibao.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "0592bcc4-3418-46d3-bcb6-0ecbf5f75f23";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

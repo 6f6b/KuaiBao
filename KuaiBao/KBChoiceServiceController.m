@@ -48,7 +48,8 @@
 
 @property (nonatomic,strong) KBServiceItemModel             *serviceItemModel;
 @property (nonatomic,strong) KBServiceWayModel              *serviceWayModel;
-//@property
+@property (nonatomic,strong) KBServiceTimeQuantumModel      *serviceTimeQuantumModel;
+@property (nonatomic,strong) KBServiceStationModel      *serviceStationModel;
 @end
 
 @implementation KBChoiceServiceController
@@ -162,6 +163,59 @@
     [self.navigationController pushViewController:serviceStationList animated:YES];
 }
 - (IBAction)dealOk:(id)sender {
+    
+    
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] init];
+    //订单开始时间
+    NSString *beginStr = [self.timeBtn.titleLabel.text stringByAppendingString:[[NSString alloc] initWithFormat:@" %@:00",self.serviceTimeQuantumModel.beginTime]];
+    [parameter setValue:beginStr forKey:@"orderBegintimeString"];
+    //订单结束时间
+    NSString *endStr = [self.timeBtn.titleLabel.text stringByAppendingString:[[NSString alloc] initWithFormat:@" %@:00",self.serviceTimeQuantumModel.endTime]];
+    [parameter setValue:endStr forKey:@"orderEndtimeString"];
+    //服务项目id
+    [parameter setValue:[self.serviceItemModel.serviceitemId stringValue] forKey:@"serverItemIds"];
+    //当前时间
+    NSDate *currentDate = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDictionary *currentStr = @{@"date":[dateFormatter stringFromDate:currentDate]};
+    NSData *jsonData =[NSJSONSerialization dataWithJSONObject:currentStr options:NSJSONWritingPrettyPrinted error:nil];
+    NSString *json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    [parameter setValue:json forKey:@"orderDate"];
+    //门店id
+    [parameter setValue:self.annotationModel.mendianid forKey:@"shopId"];
+    //工位id
+    [parameter setValue:self.serviceStationModel.stationId forKey:@"stateId"];
+    double price = 0;
+    for(KBGoodsModel *goodsModel in self.selectProductArray){
+        price = price+(double)(goodsModel.buyNum*[goodsModel.price doubleValue]);
+    }
+    price = price+[self.serviceItemModel.price doubleValue];
+    [parameter setValue:[[NSNumber alloc] initWithLong:price] forKey:@"price"];
+    [parameter setValue:self.serviceWayModel.servicesmodeId forKey:@"serverModeId"];
+    [parameter setValue:self.serviceWayModel.name forKey:@"serverModeName"];
+    [parameter setValue:self.annotationModel.shopName forKey:@"shopName"];
+    NSMutableArray *Productview = [NSMutableArray new];
+    for(KBGoodsModel *goodsModel in self.selectProductArray){
+        for(int i=0;i<goodsModel.buyNum;i++){
+            NSDictionary *dic = [goodsModel mj_keyValues];
+            [Productview addObject:dic];
+        }
+    }
+    jsonData =[NSJSONSerialization dataWithJSONObject:Productview options:NSJSONWritingPrettyPrinted error:nil];
+    json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSDictionary *productView = @{@"data":json};
+    [parameter setValue:productView forKey:@"productviewList"];
+    [parameter setValue:self.serviceStationModel.stateNo forKey:@"orderStatus"];
+    [parameter setValue:self.serviceTimeQuantumModel.timeQuantumId forKey:@"timeQuantumId"];
+    [KBHelper KBPOST:URL_ADD_ODER parameters:parameter progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"---->%@",dic);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
 }
 - (IBAction)dealHiddenDatePicker:(id)sender {
     [self hiddenDatePicker];
@@ -255,7 +309,7 @@
 - (void)oneDatePickerValueChanged:(UIDatePicker *)sender{
     NSDate *select = [sender date]; // 获取被选中的时间
     NSDateFormatter *selectDateFormatter = [[NSDateFormatter alloc] init];
-    selectDateFormatter.dateFormat = @"yy年MM月dd日"; // 设置时间和日期的格式
+    selectDateFormatter.dateFormat = @"yyyy-MM-dd"; // 设置时间和日期的格式
     NSString *dateAndTime = [selectDateFormatter stringFromDate:select];
     [self.timeBtn setTitle:dateAndTime forState:UIControlStateNormal];
 }
@@ -295,6 +349,7 @@
 }
 
 - (void)choiceServiceStationSelectCellWith:(KBServiceStationModel *)serviceStationModel{
+    self.serviceStationModel = serviceStationModel;
     [self.serviceStationBtn setTitle:serviceStationModel.name forState:UIControlStateNormal];
 }
 
@@ -302,17 +357,18 @@
     //当前时间
     NSDate *currentDate = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yy年MM月dd日HH:mm"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
     NSString *currentDateStr = [dateFormatter stringFromDate:currentDate];
     currentDate = [dateFormatter dateFromString:currentDateStr];
     
     //选择时间
-    NSString *dateBeginStr = [self.timeBtn.titleLabel.text stringByAppendingString:serviceTimeQuantumModel.beginTime];
+    NSString *dateBeginStr = [self.timeBtn.titleLabel.text stringByAppendingString:[NSString stringWithFormat:@" %@",serviceTimeQuantumModel.beginTime]];
     NSDate *dateBegin = [dateFormatter dateFromString:dateBeginStr];
     
     NSComparisonResult result = [currentDate compare:dateBegin];
     if(result == NSOrderedAscending){
         [self.serviceTimeQuantumBtn setTitle:serviceTimeQuantumModel.timeName forState:UIControlStateNormal];
+        self.serviceTimeQuantumModel = serviceTimeQuantumModel;
     }
     else{
         UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"注意" message:@"选择时间段必须大于当前时间" preferredStyle:UIAlertControllerStyleAlert];
@@ -336,7 +392,7 @@
         serviceItemString = self.serviceItemBtn.titleLabel.text;
     }
     for(KBGoodsModel *goodsModel in self.selectProductArray){
-        serviceItemString = [serviceItemString stringByAppendingString:[NSString stringWithFormat:@"+%@X%@",goodsModel.productTypeName,goodsModel.buyNum]];
+        serviceItemString = [serviceItemString stringByAppendingString:[NSString stringWithFormat:@"+%@X%d",goodsModel.productTypeName,goodsModel.buyNum]];
     }
     [self.serviceItemBtn setTitle:serviceItemString forState:UIControlStateNormal];
     

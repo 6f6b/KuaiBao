@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "KBTabBarController.h"
 #import <BaiduMapAPI_Base/BMKMapManager.h>
+#import "KBGoodsModel.h"
 @interface AppDelegate ()
 
 @end
@@ -27,6 +28,8 @@
     if (ret) {
         NSLog(@"百度地图启动成功");
     }
+
+    
     // Override point for customization after application launch.
     return YES;
 }

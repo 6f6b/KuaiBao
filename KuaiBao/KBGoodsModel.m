@@ -11,7 +11,7 @@
 @implementation KBGoodsModel
 - (id)init{
     if(self = [super init]){
-        self.buyNum = @0;
+        self.buyNum = 0;
     }
     return self;
 }

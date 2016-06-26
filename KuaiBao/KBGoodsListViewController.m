@@ -51,7 +51,7 @@
     NSMutableArray *selectProductArray = [[NSMutableArray alloc] init];
     for(NSArray *arr in self.dataArray){
         for(KBGoodsModel *goodsModel in arr){
-            if(goodsModel.buyNum != @0){
+            if(goodsModel.buyNum != 0){
                 [selectProductArray addObject:goodsModel];
             }
         }
@@ -84,13 +84,9 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self.tableView reloadData];
-    //    [self.navigationController popViewControllerAnimated:YES];
-}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 108;
+    return 85;
 }
 
 
