@@ -351,6 +351,13 @@
 		6849B6861CF59CD900162550 /* KBAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6849B6851CF59CD900162550 /* KBAboutUsViewController.m */; };
 		6856719D1D1D2BD900DEF234 /* KBGoodsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6856719C1D1D2BD900DEF234 /* KBGoodsListViewController.m */; };
 		6856719F1D1FC69B00DEF234 /* libMJExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6856719E1D1FC69B00DEF234 /* libMJExtension.a */; };
+		685671A21D21062000DEF234 /* KBConfigCommonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685671A11D21062000DEF234 /* KBConfigCommonController.m */; };
+		685671A51D2106B700DEF234 /* KBConfigForUserNameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685671A41D2106B700DEF234 /* KBConfigForUserNameController.m */; };
+		685671A81D2106D600DEF234 /* KBConfigForCarNoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685671A71D2106D600DEF234 /* KBConfigForCarNoController.m */; };
+		685671AB1D2106F100DEF234 /* KBConfigForPhoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685671AA1D2106F100DEF234 /* KBConfigForPhoneController.m */; };
+		685671AE1D21070200DEF234 /* KBConfigForPwdController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685671AD1D21070200DEF234 /* KBConfigForPwdController.m */; };
+		685671B11D21071600DEF234 /* KBConfigForKMController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685671B01D21071600DEF234 /* KBConfigForKMController.m */; };
+		685671B41D21074C00DEF234 /* KBConfigForLastRepairController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685671B31D21074C00DEF234 /* KBConfigForLastRepairController.m */; };
 		68A9FB351D0ED2870033769C /* KBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A9FB341D0ED2870033769C /* KBHelper.m */; };
 		68A9FB3D1D0FEA6D0033769C /* KBRegisterWithAccountController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A9FB3C1D0FEA6D0033769C /* KBRegisterWithAccountController.m */; };
 		68A9FB401D0FEA8B0033769C /* KBRegisterWithPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A9FB3F1D0FEA8B0033769C /* KBRegisterWithPasswordController.m */; };
@@ -772,6 +779,20 @@
 		6856719B1D1D2BD900DEF234 /* KBGoodsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBGoodsListViewController.h; sourceTree = "<group>"; };
 		6856719C1D1D2BD900DEF234 /* KBGoodsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBGoodsListViewController.m; sourceTree = "<group>"; };
 		6856719E1D1FC69B00DEF234 /* libMJExtension.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMJExtension.a; path = "../Library/Developer/Xcode/DerivedData/KuaiBao-amzvhhzkeybcwygbmvuskmqxaofg/Build/Products/Debug-iphonesimulator/libMJExtension.a"; sourceTree = "<group>"; };
+		685671A01D21062000DEF234 /* KBConfigCommonController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBConfigCommonController.h; sourceTree = "<group>"; };
+		685671A11D21062000DEF234 /* KBConfigCommonController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBConfigCommonController.m; sourceTree = "<group>"; };
+		685671A31D2106B700DEF234 /* KBConfigForUserNameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBConfigForUserNameController.h; sourceTree = "<group>"; };
+		685671A41D2106B700DEF234 /* KBConfigForUserNameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBConfigForUserNameController.m; sourceTree = "<group>"; };
+		685671A61D2106D600DEF234 /* KBConfigForCarNoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBConfigForCarNoController.h; sourceTree = "<group>"; };
+		685671A71D2106D600DEF234 /* KBConfigForCarNoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBConfigForCarNoController.m; sourceTree = "<group>"; };
+		685671A91D2106F100DEF234 /* KBConfigForPhoneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBConfigForPhoneController.h; sourceTree = "<group>"; };
+		685671AA1D2106F100DEF234 /* KBConfigForPhoneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBConfigForPhoneController.m; sourceTree = "<group>"; };
+		685671AC1D21070200DEF234 /* KBConfigForPwdController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBConfigForPwdController.h; sourceTree = "<group>"; };
+		685671AD1D21070200DEF234 /* KBConfigForPwdController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBConfigForPwdController.m; sourceTree = "<group>"; };
+		685671AF1D21071600DEF234 /* KBConfigForKMController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBConfigForKMController.h; sourceTree = "<group>"; };
+		685671B01D21071600DEF234 /* KBConfigForKMController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBConfigForKMController.m; sourceTree = "<group>"; };
+		685671B21D21074C00DEF234 /* KBConfigForLastRepairController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBConfigForLastRepairController.h; sourceTree = "<group>"; };
+		685671B31D21074C00DEF234 /* KBConfigForLastRepairController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBConfigForLastRepairController.m; sourceTree = "<group>"; };
 		68A9FB331D0ED2870033769C /* KBHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KBHelper.h; sourceTree = "<group>"; };
 		68A9FB341D0ED2870033769C /* KBHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KBHelper.m; sourceTree = "<group>"; };
 		68A9FB381D0FDFB20033769C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -1501,6 +1522,20 @@
 				6849B6821CF59C5A00162550 /* KBUserGuidController.m */,
 				68A9FC071D16D7BA0033769C /* KBConfigController.h */,
 				68A9FC081D16D7BA0033769C /* KBConfigController.m */,
+				685671A01D21062000DEF234 /* KBConfigCommonController.h */,
+				685671A11D21062000DEF234 /* KBConfigCommonController.m */,
+				685671A31D2106B700DEF234 /* KBConfigForUserNameController.h */,
+				685671A41D2106B700DEF234 /* KBConfigForUserNameController.m */,
+				685671A61D2106D600DEF234 /* KBConfigForCarNoController.h */,
+				685671A71D2106D600DEF234 /* KBConfigForCarNoController.m */,
+				685671A91D2106F100DEF234 /* KBConfigForPhoneController.h */,
+				685671AA1D2106F100DEF234 /* KBConfigForPhoneController.m */,
+				685671AC1D21070200DEF234 /* KBConfigForPwdController.h */,
+				685671AD1D21070200DEF234 /* KBConfigForPwdController.m */,
+				685671AF1D21071600DEF234 /* KBConfigForKMController.h */,
+				685671B01D21071600DEF234 /* KBConfigForKMController.m */,
+				685671B21D21074C00DEF234 /* KBConfigForLastRepairController.h */,
+				685671B31D21074C00DEF234 /* KBConfigForLastRepairController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -2087,8 +2122,10 @@
 			files = (
 				17471E8E1CA175E700B6C1C7 /* AppDelegate.m in Sources */,
 				68A9FC101D17F5260033769C /* KBServiceStationCell.m in Sources */,
+				685671A81D2106D600DEF234 /* KBConfigForCarNoController.m in Sources */,
 				68A9FC031D169D860033769C /* KBServiceItemModel.m in Sources */,
 				68A9FB501D1141A60033769C /* KBPointAnnotation.m in Sources */,
+				685671A51D2106B700DEF234 /* KBConfigForUserNameController.m in Sources */,
 				1740AD501CB6A072007CC5B7 /* KBForgetPasswordViewController.m in Sources */,
 				1740AD561CB6A4F2007CC5B7 /* KBResetPasswordViewController.m in Sources */,
 				68A9FB3D1D0FEA6D0033769C /* KBRegisterWithAccountController.m in Sources */,
@@ -2106,6 +2143,7 @@
 				1735F73B1CB3D4A8005E577C /* KBLoginViewController.m in Sources */,
 				68ACD96D1D1A6D0A0077F818 /* KBServiceTimeQuantumModel.m in Sources */,
 				17471ED21CA1780D00B6C1C7 /* KBTabBarController.m in Sources */,
+				685671A21D21062000DEF234 /* KBConfigCommonController.m in Sources */,
 				17CE6C431CA57B1E000B7920 /* KBTableViewCell.m in Sources */,
 				684878051CF4813A00C1FF73 /* KBMineViewController.m in Sources */,
 				17471ECF1CA177EF00B6C1C7 /* KBNavigationController.m in Sources */,
@@ -2119,14 +2157,18 @@
 				17CE6C471CA57D5A000B7920 /* KBOderTableViewCell.m in Sources */,
 				6849B6831CF59C5A00162550 /* KBUserGuidController.m in Sources */,
 				68A9FBB81D1632AE0033769C /* KBServiceItemCell.m in Sources */,
+				685671B11D21071600DEF234 /* KBConfigForKMController.m in Sources */,
 				68A9FB471D11165B0033769C /* KBUserInfo.m in Sources */,
+				685671B41D21074C00DEF234 /* KBConfigForLastRepairController.m in Sources */,
 				68A9FB581D1163ED0033769C /* KBShopDetailViewController.m in Sources */,
 				68A9FC0C1D17F4D10033769C /* KBServiceStationListController.m in Sources */,
+				685671AB1D2106F100DEF234 /* KBConfigForPhoneController.m in Sources */,
 				68ACD9161D191AB70077F818 /* KBGoodsModel.m in Sources */,
 				17471EE91CA1791B00B6C1C7 /* KBOderViewController.m in Sources */,
 				68A9FC061D169DA20033769C /* KBServiceWayModel.m in Sources */,
 				68A9FB401D0FEA8B0033769C /* KBRegisterWithPasswordController.m in Sources */,
 				68A9FC001D16474E0033769C /* KBCommentsController.m in Sources */,
+				685671AE1D21070200DEF234 /* KBConfigForPwdController.m in Sources */,
 				68A9FB4D1D113F500033769C /* KBAnnotation.m in Sources */,
 				68A9FBBD1D1632C00033769C /* KBServiceWayCell.m in Sources */,
 				68A9FBB11D1591520033769C /* KBChoiceServiceItemListDeleget.m in Sources */,
@@ -2286,7 +2328,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kuaibao.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0592bcc4-3418-46d3-bcb6-0ecbf5f75f23";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -2309,7 +2351,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kuaibao.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0592bcc4-3418-46d3-bcb6-0ecbf5f75f23";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

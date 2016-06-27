@@ -56,13 +56,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.section == 0){
         if (![KBHelper getCustomerId]) {
-            KBLoginViewController *loginVC = [KBHelper getViewControllerWithStoryBoardName:@"Mine" storyBoardId:@"KBLoginViewController"];
+            KBLoginViewController *loginVC = (KBLoginViewController *)[KBHelper getViewControllerWithStoryBoardName:@"Mine" storyBoardId:@"KBLoginViewController"];
             [self.navigationController pushViewController:loginVC animated:YES];
         }
     }
     if (indexPath.section == 1) {
         if (indexPath.row == 0) {
-            KBOderViewController *oderVC = [[UIStoryboard storyboardWithName:@"Oder" bundle:nil] instantiateViewControllerWithIdentifier:@"KBOderViewController"];
+            KBOderViewController *oderVC = (KBOderViewController *)[KBHelper getViewControllerWithStoryBoardName:@"Oder" storyBoardId:@"KBOderViewController"];
             [self.navigationController pushViewController:oderVC animated:true];
         }
         if (indexPath.row == 1) {
@@ -70,6 +70,15 @@
         }
         if (indexPath.row == 2) {
             
+        }
+        if (indexPath.row == 4){
+            if(nil == [KBHelper getCustomerId]){
+                KBLoginViewController *loginVC = (KBLoginViewController *)[KBHelper getViewControllerWithStoryBoardName:@"Mine" storyBoardId:@"KBLoginViewController"];
+                [self.navigationController pushViewController:loginVC animated:YES];
+                return;
+            }
+            KBConfigController *configVC = (KBConfigController *)[KBHelper getViewControllerWithStoryBoardName:@"Mine" storyBoardId:@"KBConfigController"];
+            [self.navigationController pushViewController:configVC animated:YES];
         }
     }
 }

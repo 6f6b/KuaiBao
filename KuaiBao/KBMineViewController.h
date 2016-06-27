@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KBConfigController.h"
 
 @interface KBMineViewController : UITableViewController
 
