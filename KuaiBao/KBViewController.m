@@ -17,7 +17,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-    NSLog(@"---->%@",NSStringFromCGPoint(self.view.center));
     NSLog(@"%f",SCREEN_HEIGHT);
     // Do any additional setup after loading the view.
 }

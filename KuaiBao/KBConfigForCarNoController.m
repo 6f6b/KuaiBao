@@ -20,6 +20,9 @@
     // Do any additional setup after loading the view.
 }
 - (IBAction)dealCommit:(id)sender {
+    if(nil != self.carNum.text){
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {

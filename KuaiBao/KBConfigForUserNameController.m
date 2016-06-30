@@ -21,7 +21,15 @@
 }
 - (IBAction)dealCommit:(id)sender {
     if(nil != self.userName.text){
-        
+        NSDictionary *parameter = @{@"userName":self.userName.text,@"customerId":[KBHelper getCustomerId]};
+        [KBHelper KBPOST:URL_UPDATE_USER_INFO parameters:parameter progress:^(NSProgress * _Nonnull uploadProgress) {
+            
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+            NSLog(@"%@",dic);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            
+        }];
     }
 }
 

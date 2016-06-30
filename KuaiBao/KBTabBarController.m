@@ -26,18 +26,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.tabBar.barTintColor = [UIColor blackColor];
+    self.tabBar.barTintColor = [UIColor whiteColor];
     KBHomePageViewController *homePageVC = [[KBHomePageViewController alloc] init];
-    [self addChildViewControllerWith:homePageVC title:@"主页" image:@"main_index_search_normal_1" selectedImage:@"main_index_search_normal_2"];
+    [self addChildViewControllerWith:homePageVC title:@"主页" image:@"home" selectedImage:@"home_s"];
     
     KBFastProtectViewController *fastProtectVC = [[KBFastProtectViewController alloc] init];
-    [self addChildViewControllerWith:fastProtectVC title:@"快保" image:@"main_index_tuan_normal_1" selectedImage:@"main_index_tuan_normal_2"];
+    [self addChildViewControllerWith:fastProtectVC title:@"快保" image:@"kuaibao" selectedImage:@"kuaibao_s"];
     
 //    KBOderViewController *oderVC = [[UIStoryboard storyboardWithName:@"Oder" bundle:nil] instantiateViewControllerWithIdentifier:@"KBOderViewController"];
 //    [self addChildViewControllerWith:oderVC title:@"订单" image:@"main_index_checkin_normal_1" selectedImage:@"main_index_checkin_normal_2"];
     
     KBMineViewController *mineVC = [[UIStoryboard storyboardWithName:@"Mine" bundle:nil] instantiateViewControllerWithIdentifier:@"KBMineViewController"];
-    [self addChildViewControllerWith:mineVC title:@"我的" image:@"main_index_my_normal_1" selectedImage:@"main_index_my_normal_2"];
+    [self addChildViewControllerWith:mineVC title:@"我的" image:@"mine" selectedImage:@"mine_s"];
     
 //    KBMoreViewController *moreVC = [[UIStoryboard storyboardWithName:@"More" bundle:nil] instantiateViewControllerWithIdentifier:@"KBMoreViewController"];
 //    [self addChildViewControllerWith:moreVC title:@"更多" image:@"main_index_more_normal_1" selectedImage:@"main_index_more_normal_2"];
