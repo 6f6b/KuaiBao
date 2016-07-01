@@ -20,6 +20,32 @@
     // Do any additional setup after loading the view.
 }
 - (IBAction)dealCommit:(id)sender {
+    NSDictionary *parameter = @{@"customerId":[KBHelper getCustomerId]};
+    [KBHelper KBPOST:URL_GET_USERINFO parameters:parameter progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        KBUserInfo *userInfo = [KBUserInfo new];
+        [userInfo setValuesForKeysWithDictionary:[dic objectForKey:@"data"]];
+        
+        
+        if(nil != self.kmTextField.text){
+            userInfo.diveredKm = self.kmTextField.text;
+            userInfo.pwd = nil;
+            NSDictionary *parameter = [userInfo mj_keyValues];
+            //            NSDictionary *parameter = @{@"userName":self.userName.text,@"customerId":[KBHelper getCustomerId]};
+            [KBHelper KBPOST:URL_UPDATE_USER_INFO parameters:parameter progress:^(NSProgress * _Nonnull uploadProgress) {
+                
+            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+                NSLog(@"%@",dic);
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                
+            }];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

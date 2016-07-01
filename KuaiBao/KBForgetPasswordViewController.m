@@ -31,6 +31,7 @@
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *dic =[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        NSLog(@"%@",dic);
         NSString *code = [[dic objectForKey:@"header"] objectForKey:@"code"];
         if ([@"200"  isEqual: code]){
             KBResetPasswordViewController *resetPasswordViewController = [KBHelper getViewControllerWithStoryBoardName:@"Mine" storyBoardId:@"KBResetPasswordViewController"];
@@ -38,7 +39,7 @@
             [self.navigationController pushViewController:resetPasswordViewController animated:YES];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+        NSLog(@"错误");
     }];
 }
 

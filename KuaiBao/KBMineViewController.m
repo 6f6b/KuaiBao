@@ -99,7 +99,7 @@
         KBUserInfo *userInfo = [KBUserInfo new];
         [userInfo setValuesForKeysWithDictionary:[dic objectForKey:@"data"]];
         self.userName.text = userInfo.userName;
-        self.carNumber.text = [NSString stringWithFormat:@"车牌号：%@",userInfo.carno];
+        self.carNumber.text = [NSString stringWithFormat:@"车牌号：%@",userInfo.carnumber];
         self.userScore.text = [NSString stringWithFormat:@"积分：%@",userInfo.point];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         

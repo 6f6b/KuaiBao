@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "KBUserInfo.h"
 @interface KBConfigCommonController : UITableViewController
 
 @end

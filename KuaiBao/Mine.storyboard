@@ -386,6 +386,9 @@
                                                     <state key="normal" title="下一步">
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="nextForSetPassword:" destination="KTv-0w-v8m" eventType="touchUpInside" id="xrj-PS-eg5"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
