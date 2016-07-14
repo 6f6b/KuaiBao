@@ -29,7 +29,14 @@
     [[NSUserDefaults standardUserDefaults] setObject:customerId forKey:@"customerId"];
 }
 
++ (void)setUserAccount:(NSString *)account{
+    [[NSUserDefaults standardUserDefaults] setObject:account forKey:@"userAccount"];
+}
+
 + (NSString *)getCustomerId{
     return [[NSUserDefaults standardUserDefaults] valueForKey:@"customerId"];
+}
++ (NSString *)getUserAccount{
+    return [[NSUserDefaults standardUserDefaults] valueForKey:@"userAccount"];
 }
 @end
